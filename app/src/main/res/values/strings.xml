@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Blockmaker</string>
+    <string name="loading">결과 측정 중 ...</string>
+    <string name="toolbar_btn_cam">다시 선택</string>
+    <string name="toolbar_btn_home">처음으로</string>
+    <string name="toolbar_btn_pre">이전</string>
+    <string name="home_btn">시작해보자 !</string>
+    <string name="main_build">블록 쌓기</string>
+    <string name="main_const">구성 놀이</string>
+    <string name="build_cam">카메라</string>
+    <string name="build_gall">갤러리</string>
+    <string name="build_front">앞쪽</string>
+    <string name="build_back">뒤쪽</string>
+    <string name="build_right">오른쪽</string>
+    <string name="build_left">왼쪽</string>
+    <string name="build_up">위쪽</string>
+    <string name="item_type">유형/요소</string>
+    <string name="item_count">개수</string>
+    <string name="item_acc">정확도</string>
+</resources>
