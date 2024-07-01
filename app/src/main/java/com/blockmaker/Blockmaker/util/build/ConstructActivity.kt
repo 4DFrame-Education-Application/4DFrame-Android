@@ -1,4 +1,4 @@
-package com.blockmaker.Blockmaker.util.construct
+package com.blockmaker.Blockmaker.util.build
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

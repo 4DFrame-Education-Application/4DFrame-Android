@@ -21,32 +21,6 @@
             app:contentInsetStart="0dp"
             app:layout_scrollFlags="scroll|enterAlways">
 
-            <Button
-                android:id="@+id/toolbar_btn_again"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:background="@drawable/ic_btn_invisible"
-                android:fontFamily="@font/dongle_bold"
-                android:gravity="center"
-                android:text="다시 찍기"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/toolbar_btn_main"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:background="@drawable/ic_btn_invisible"
-                android:fontFamily="@font/dongle_bold"
-                android:gravity="center"
-                android:text="처음으로"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
 
             <ImageView
                 android:layout_width="78dp"

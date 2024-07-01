@@ -72,6 +72,7 @@
         android:layout_marginTop="30dp">
 
         <LinearLayout
+            android:id="@+id/buttonLinearLayout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -79,8 +80,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/buttonLinearLayout1"
+            <FrameLayout
                 android:layout_width="120dp"
                 android:layout_height="170dp"
                 android:layout_gravity="center"
@@ -94,13 +94,15 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_plus"
-                    android:importantForAccessibility="no" />
+                    android:importantForAccessibility="no"
+                    android:layout_gravity="center"/>
 
                 <ImageView
+                    android:id="@+id/imageView1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no" />
-            </LinearLayout>
+            </FrameLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -118,6 +120,7 @@
             android:layout_height="match_parent" />
 
         <LinearLayout
+            android:id="@+id/buttonLinearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -125,8 +128,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/buttonLinearLayout2"
+            <FrameLayout
                 android:layout_width="120dp"
                 android:layout_height="170dp"
                 android:layout_gravity="center"
@@ -140,8 +142,16 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_plus"
+                    android:importantForAccessibility="no"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:importantForAccessibility="no" />
-            </LinearLayout>
+
+            </FrameLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -166,6 +176,7 @@
         android:layout_marginTop="20dp">
 
         <LinearLayout
+            android:id="@+id/buttonLinearLayout3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -173,8 +184,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/buttonLinearLayout3"
+            <FrameLayout
                 android:layout_width="120dp"
                 android:layout_height="170dp"
                 android:layout_gravity="center"
@@ -188,8 +198,16 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_plus"
+                    android:importantForAccessibility="no"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:importantForAccessibility="no" />
-            </LinearLayout>
+
+            </FrameLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -206,6 +224,7 @@
             android:layout_height="match_parent" />
 
         <LinearLayout
+            android:id="@+id/buttonLinearLayout4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -213,8 +232,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/buttonLinearLayout4"
+            <FrameLayout
                 android:layout_width="120dp"
                 android:layout_height="170dp"
                 android:layout_gravity="center"
@@ -228,8 +246,15 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_plus"
+                    android:importantForAccessibility="no"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:importantForAccessibility="no" />
-            </LinearLayout>
+            </FrameLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -240,11 +265,10 @@
                 android:fontFamily="@font/dongle_regular"
                 android:textSize="15sp"/>
         </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/buttonLinearLayout5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -253,8 +277,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp">
 
-        <LinearLayout
-            android:id="@+id/buttonLinearLayout5"
+        <FrameLayout
             android:layout_width="120dp"
             android:layout_height="170dp"
             android:layout_gravity="center"
@@ -268,8 +291,16 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_plus"
+                android:importantForAccessibility="no"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:importantForAccessibility="no" />
-        </LinearLayout>
+
+        </FrameLayout>
 
         <TextView
             android:layout_width="wrap_content"

@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.blockmaker.Blockmaker.R
-import com.blockmaker.Blockmaker.util.build.BuildCameraActivity
-import com.blockmaker.Blockmaker.util.build.BuildGalleryActivity
 
 class BuildActivity : AppCompatActivity() {
 

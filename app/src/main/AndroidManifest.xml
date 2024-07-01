@@ -12,6 +12,12 @@
         android:supportsRtl="true"
 
         tools:targetApi="31">
+        <activity android:name=".util.build.BuildLoadingView"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".util.build.BuildResultActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".util.build.BuildGalleryActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
@@ -21,7 +27,7 @@
         <activity android:name=".util.build.BuildActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".util.construct.ConstructActivity"
+        <activity android:name=".util.build.ConstructActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".util.home.HomeActivity"
