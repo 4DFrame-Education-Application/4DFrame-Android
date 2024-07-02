@@ -38,6 +38,7 @@ class BuildGalleryActivity : AppCompatActivity() {
             findViewById<ImageView>(R.id.imageView5)
         )
 
+        // 각 버튼과 이미지뷰를 연결하고 클릭 리스너를 설정
         buttons.zip(imageViews).forEach { (button, imageView) ->
             button.setOnClickListener {
                 currentImageView = imageView
@@ -46,6 +47,7 @@ class BuildGalleryActivity : AppCompatActivity() {
         }
     }
 
+    // 이미지 선택을 위한 인텐트 실행
     private fun openImageChooser() {
         val intent = Intent().apply {
             type = "image/*"
@@ -54,6 +56,7 @@ class BuildGalleryActivity : AppCompatActivity() {
         startActivityForResult(Intent.createChooser(intent, "Select a picture that fits the topic"), PICK_IMAGE)
     }
 
+    // 이미지 선택 결과 처리
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
@@ -66,6 +69,7 @@ class BuildGalleryActivity : AppCompatActivity() {
         }
     }
 
+    // 모든 이미지를 선택한 후 다음 페이지로 이동
     private fun moveToNextPage() {
         val intent = Intent(this, BuildLoadingView::class.java)
         startActivity(intent)
