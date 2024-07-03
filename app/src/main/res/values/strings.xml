@@ -17,4 +17,5 @@
     <string name="item_type">유형/요소</string>
     <string name="item_count">개수</string>
     <string name="item_acc">정확도</string>
+    <string name="item_heart">하트</string>
 </resources>

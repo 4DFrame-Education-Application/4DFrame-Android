@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import com.blockmaker.Blockmaker.util.main.MainActivity
 import com.blockmaker.Blockmaker.R
+import com.blockmaker.Blockmaker.util.build.BuildResultActivity
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +17,7 @@ class HomeActivity : AppCompatActivity() {
 
         // 페이지 이동
         fun moveToAnotherPage(){
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, BuildResultActivity::class.java)
             startActivity(intent)
         }
 

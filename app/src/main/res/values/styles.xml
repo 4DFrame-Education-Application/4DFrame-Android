@@ -3,6 +3,19 @@
     <style name="tab_text"
         parent="@android:style/TextAppearance.Widget.TabWidget">
         <item name="android:fontFamily">@font/dongle_regular</item>
-        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabIndicatorFullWidth">true</item>
+        <item name="android:textColorHighlight">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="fontFamily">@font/dongle_regular</item>
+    </style>
+    <style name="tab_style" parent="Widget.Design.TabLayout">
+        <item name="android:background">@color/orange</item>
+        <item name="tabBackground">@color/orange</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabIndicatorColor">@color/white</item>
     </style>
 </resources>
