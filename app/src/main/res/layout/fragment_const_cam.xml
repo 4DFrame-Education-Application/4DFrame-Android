@@ -59,36 +59,40 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
-        android:id="@+id/frameLayout_pic"
-        android:layout_width="match_parent"
-        android:layout_height="530dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/ic_btn_gry_stroke"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout3">
-
         <FrameLayout
-            android:layout_width="145dp"
-            android:layout_height="200dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_btn_gry_white_stroke">
+            android:id="@+id/camera_frame"
+            android:layout_width="match_parent"
+            android:layout_height="530dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_btn_org_stroke"
+            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout3" >
 
-            <ImageView
+            <androidx.camera.view.PreviewView
+                android:id="@+id/preview_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center" />
+
+            <FrameLayout
                 android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_gravity="center"
-                android:src="@drawable/img_const" />
+                android:layout_height="200dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_btn_org_white_stroke">
 
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logo_1" />
+            </FrameLayout>
         </FrameLayout>
-
-    </FrameLayout>
 
     <ImageButton
         android:id="@+id/button2"

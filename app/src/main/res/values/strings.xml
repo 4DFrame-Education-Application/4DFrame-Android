@@ -4,7 +4,8 @@
     <string name="toolbar_btn_cam">다시 선택</string>
     <string name="toolbar_btn_home">처음으로</string>
     <string name="toolbar_btn_pre">이전</string>
-    <string name="home_btn">시작해보자 !</string>
+    <string name="home_btn_start">시작해보자 !</string>
+    <string name="home_btn_prac">연습해보자 !</string>
     <string name="main_build">블록 쌓기</string>
     <string name="main_const">구성 놀이</string>
     <string name="build_cam">카메라</string>
