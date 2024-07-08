@@ -27,5 +27,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ConstructActivity::class.java)
             startActivity(intent)
         }
+
+        // Toolbar previous button 클릭 이벤트 처리
+        binding.toolbarPrevious.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

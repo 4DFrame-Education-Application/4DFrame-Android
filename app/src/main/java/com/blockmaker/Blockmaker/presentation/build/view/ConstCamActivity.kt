@@ -22,7 +22,7 @@ class ConstCamActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_build_cam)
+        setContentView(R.layout.fragment_const_cam)
 
         previewView = findViewById(R.id.preview_view)
         val cameraButton: ImageButton = findViewById(R.id.button_cam)

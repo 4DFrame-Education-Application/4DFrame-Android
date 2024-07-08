@@ -8,4 +8,3 @@ data class Result(
     @SerializedName("rate") val rate: String,
     @SerializedName("imageUrl") val imageUrl: String
 )
-

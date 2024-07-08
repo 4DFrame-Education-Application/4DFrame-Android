@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.blockmaker.Blockmaker.presentation.home.HomeActivity
 import com.blockmaker.Blockmaker.R
+import com.blockmaker.Blockmaker.presentation.main.HomeActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

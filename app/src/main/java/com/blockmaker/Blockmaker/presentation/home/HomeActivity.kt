@@ -1,29 +1,32 @@
-package com.blockmaker.Blockmaker.presentation.home
+package com.blockmaker.Blockmaker.presentation.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.blockmaker.Blockmaker.presentation.main.MainActivity
-import com.blockmaker.Blockmaker.databinding.ActivityMainBinding
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import com.blockmaker.Blockmaker.R
 
 class HomeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_home)
+
+        val button1: Button = findViewById(R.id.home_button1)
+        val button2: Button = findViewById(R.id.home_button2)
 
         // 블럭 쌓기 버튼 클릭 이벤트 처리
-        binding.buttonLinearLayout1.setOnClickListener {
+        button1.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
-        // 함수호출
-        binding.buttonLinearLayout2.setOnClickListener {
+        // 구성 놀이 버튼 클릭 이벤트 처리
+        button2.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-
     }
 }

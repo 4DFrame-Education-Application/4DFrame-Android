@@ -77,11 +77,11 @@ class BuildCameraViewModel : ViewModel() {
             ContextCompat.getMainExecutor(context),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onError(exc: ImageCaptureException) {
-                    Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
+                    Log.e(TAG, "사진 캡처 실패: ${exc.message}", exc)
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    val msg = "Photo capture succeeded: ${output.savedUri}"
+                    val msg = "사진 캡처 성공!"
                     Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
                     Log.d(TAG, msg)
 
