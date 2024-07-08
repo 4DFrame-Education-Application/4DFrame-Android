@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".util.main.MainActivity">
+    android:background="@color/white" >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout3"
@@ -68,7 +67,7 @@
             android:layout_marginBottom="20dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/ic_btn_org_stroke"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintBottom_toTopOf="@+id/button_cam"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout3" >
@@ -80,11 +79,13 @@
                 android:layout_gravity="center" />
 
             <FrameLayout
-                android:layout_width="140dp"
-                android:layout_height="200dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/ic_btn_org_white_stroke">
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:background="@drawable/ic_btn_gry_white_stroke">
 
                 <ImageView
                     android:layout_width="140dp"
@@ -95,7 +96,7 @@
         </FrameLayout>
 
     <ImageButton
-        android:id="@+id/button2"
+        android:id="@+id/button_cam"
         android:layout_width="70dp"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"

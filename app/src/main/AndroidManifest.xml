@@ -1,43 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- 이미지 저장 폴더 읽기/쓰기 권한 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--카메라 권한 -->
+    <uses-permission android:name="android.permission.CAMERA"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
         tools:targetApi="31">
-        <activity android:name=".util.build.BuildLoadingView"
+        <activity android:name=".presentation.build.view.ConstructActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".util.build.BuildResultActivity"
+        <activity android:name=".presentation.build.ConstLoadingView"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".util.build.BuildGalleryActivity"
+        <activity android:name=".presentation.build.ConstCamActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".util.build.BuildCameraActivity"
+        <activity android:name=".presentation.build.BuildLoadingView"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".util.build.BuildActivity"
+        <activity android:name=".presentation.build.BuildResultActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".util.build.ConstructActivity"
+        <activity android:name=".presentation.build.BuildGalleryActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".util.home.HomeActivity"
+        <activity android:name=".presentation.build.view.BuildCameraActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".util.main.MainActivity"
+        <activity android:name=".presentation.build.view.BuildActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".presentation.home.HomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".presentation.main.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
-            android:name=".util.splash.SplashActivity"
+            android:name=".presentation.splash.SplashActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar">

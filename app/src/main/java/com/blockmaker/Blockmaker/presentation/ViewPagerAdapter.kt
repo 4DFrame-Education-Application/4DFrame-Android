@@ -3,6 +3,11 @@ package com.blockmaker.Blockmaker.presentation
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.blockmaker.Blockmaker.presentation.build.view.BackFragment
+import com.blockmaker.Blockmaker.presentation.build.view.FrontFragment
+import com.blockmaker.Blockmaker.presentation.build.view.LeftFragment
+import com.blockmaker.Blockmaker.presentation.build.view.RightFragment
+import com.blockmaker.Blockmaker.presentation.build.view.UpFragment
 
 class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".util.main.MainActivity">
+    tools:context=".presentation.build.view.BuildCameraActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout3"

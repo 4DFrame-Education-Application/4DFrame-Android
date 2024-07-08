@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".util.main.MainActivity">
+    android:background="@color/white">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -31,7 +30,7 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/dongle_bold"
                 android:background="@drawable/ic_btn_invisible"
-                android:text="이전" />
+                android:text="@string/toolbar_btn_pre" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -43,7 +42,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/dongle_bold"
-                android:text="구성 놀이" />
+                android:text="@string/main_build" />
 
             <ImageView
                 android:layout_width="78dp"
@@ -70,6 +69,7 @@
 
 
         <LinearLayout
+            android:id="@+id/buttonLinearLayout1"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_gravity="center"
@@ -98,7 +98,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/dongle_regular"
-                android:text="카메라"
+                android:text="@string/build_cam"
                 android:textColor="@color/white"
                 android:textSize="32dp" />
         </LinearLayout>
@@ -108,7 +108,7 @@
             android:layout_height="60dp" />
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/buttonLinearLayout2"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_gravity="center"
@@ -135,7 +135,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/dongle_regular"
-                android:text="갤러리"
+                android:text="@string/build_gall"
                 android:textColor="@color/white"
                 android:textSize="32dp" />
         </LinearLayout>
