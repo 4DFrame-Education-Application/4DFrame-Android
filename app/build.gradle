@@ -4,16 +4,17 @@ plugins {
 }
 
 android {
-    namespace 'com.blockmaker.Blockmaker'
+    namespace 'com.blockmaker.fdland'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.blockmaker.Blockmaker"
+        applicationId "com.blockmaker.fdland"
         minSdk 33
         targetSdk 34
         versionCode 1
         versionName "1.0"
 
+        ndkVersion = "22.1.7171670"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
@@ -60,6 +61,8 @@ dependencies {
     implementation "androidx.camera:camera-view:1.1.0"
 
     implementation "com.airbnb.android:lottie:6.0.0"
+
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"

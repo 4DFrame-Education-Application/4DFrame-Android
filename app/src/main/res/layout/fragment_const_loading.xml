@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             app:contentInsetStart="0dp"
+            android:layout_gravity="center"
             app:layout_scrollFlags="scroll|enterAlways">
 
             <ImageView
