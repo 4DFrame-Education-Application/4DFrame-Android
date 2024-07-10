@@ -16,6 +16,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         tools:targetApi="31">
+        <activity android:name=".presentation.build.view.ConstGalleryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".presentation.build.view.ConstructActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
@@ -23,6 +26,9 @@
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".presentation.build.view.ConstCamActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".presentation.build.view.ConstResultActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".presentation.build.view.BuildLoadingView"
