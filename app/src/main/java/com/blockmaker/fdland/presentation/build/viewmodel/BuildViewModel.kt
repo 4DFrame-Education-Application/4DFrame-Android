@@ -23,4 +23,6 @@ class BuildViewModel : ViewModel() {
     fun onGalleryButtonClick() {
         _navigateToActivity.value = BuildGalleryActivity::class.java
     }
+
+
 }

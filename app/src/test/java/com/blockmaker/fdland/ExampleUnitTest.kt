@@ -1,4 +1,4 @@
-package com.blockmaker.Blockmaker
+package com.blockmaker.fdland
 
 import org.junit.Test
 

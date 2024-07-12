@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white" >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -15,10 +15,9 @@
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@color/white"
             app:contentInsetStart="0dp"
-            android:layout_gravity="center"
             app:layout_scrollFlags="scroll|enterAlways">
 
             <ImageView
@@ -27,8 +26,7 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:src="@drawable/logo3"
-                android:importantForAccessibility="no" />
+                android:src="@drawable/logo3" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -36,27 +34,41 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="300dp"
-        android:layout_height="425dp"
-        android:background="@drawable/ic_btn_fill_gry"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintVertical_bias="0.3"
-        android:importantForAccessibility="no" />
-
-    <ImageView
-        android:id="@+id/imageView2"
         android:layout_width="270dp"
-        android:layout_height="400dp"
-        android:src="@drawable/logo_1"
+        android:layout_height="470dp"
+        android:background="@drawable/ic_btn_big_org_stroke"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintVertical_bias="0.316"
-        android:importantForAccessibility="no" />
+        app:layout_constraintVertical_bias="0.18" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/home_ani"
+        android:layout_width="250dp"
+        android:layout_height="450dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView1"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/home_anime" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:minWidth="200dp"
+        android:minHeight="50dp"
+        android:indeterminateTint="@color/orange"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView1"
+        tools:ignore="MissingConstraints"
+        android:duration="2000"/>
 
     <TextView
         android:id="@+id/button"
@@ -64,12 +76,12 @@
         android:layout_height="50dp"
         android:fontFamily="@font/dongle_bold"
         android:gravity="center"
-        android:text="@string/loading"
+        android:text="결과 측정 중 ..."
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

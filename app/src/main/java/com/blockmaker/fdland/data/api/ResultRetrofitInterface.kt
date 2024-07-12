@@ -13,5 +13,5 @@ interface ResultRetrofitInterface {
         @Query("name") name: String? = null,
         @Query("accuracy") accuracy: String? = null,
         @Query("imageUrl") imageUrl: String? = null
-    ): Call<ResultList>
+    ): Call<List<ResultList>>
 }
