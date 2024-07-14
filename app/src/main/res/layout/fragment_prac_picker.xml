@@ -79,8 +79,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
-                android:layout_width="125dp"
-                android:layout_height="150dp"
+                android:layout_width="145dp"
+                android:layout_height="180dp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_btn_fill_org"
                 android:gravity="center"
@@ -112,8 +112,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
-                android:layout_width="125dp"
-                android:layout_height="150dp"
+                android:layout_width="145dp"
+                android:layout_height="180dp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_btn_fill_org"
                 android:gravity="center"
@@ -126,7 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no"
-                    android:src="@drawable/img_prac_1"/>
+                    android:src="@drawable/img_prac_2"/>
 
             </FrameLayout>
         </LinearLayout>
@@ -152,8 +152,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
-                android:layout_width="125dp"
-                android:layout_height="150dp"
+                android:layout_width="145dp"
+                android:layout_height="180dp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_btn_fill_org"
                 android:gravity="center"
@@ -166,7 +166,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no"
-                    android:src="@drawable/img_prac_1"/>
+                    android:src="@drawable/img_prac_3"/>
 
             </FrameLayout>
 
@@ -186,8 +186,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
-                android:layout_width="125dp"
-                android:layout_height="150dp"
+                android:layout_width="145dp"
+                android:layout_height="180dp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_btn_fill_org"
                 android:gravity="center"
@@ -200,7 +200,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no"
-                    android:src="@drawable/img_prac_1"/>
+                    android:src="@drawable/img_prac_4"/>
             </FrameLayout>
         </LinearLayout>
     </LinearLayout>
@@ -226,8 +226,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
-                android:layout_width="125dp"
-                android:layout_height="150dp"
+                android:layout_width="145dp"
+                android:layout_height="180dp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_btn_fill_org"
                 android:gravity="center"
@@ -240,7 +240,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no"
-                    android:src="@drawable/img_prac_1"/>
+                    android:src="@drawable/img_prac_5"/>
 
             </FrameLayout>
 
@@ -260,75 +260,33 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
-                android:layout_width="125dp"
-                android:layout_height="150dp"
+                android:layout_width="145dp"
+                android:layout_height="190dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="8dp"
+
                 android:textAlignment="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dongle_regular"
+                    android:gravity="center"
+                    android:text="이 중에 한 장을 골라봐!"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:id="@+id/imageView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="110dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     android:importantForAccessibility="no"
-                    android:src="@drawable/img_choice_ill"/>
+                    android:src="@drawable/img_choice_ill" />
             </FrameLayout>
         </LinearLayout>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gallinearLayout3">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/dongle_regular"
-            android:text="이 곳을 클릭 해봐!"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="77dp"
-            android:layout_height="73dp"
-            app:layout_constraintEnd_toStartOf="@+id/home_button1"
-            app:srcCompat="@drawable/img_button_ill"
-            tools:ignore="MissingConstraints"
-            android:layout_gravity="right"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/constraintLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gallinearLayout3">
-        <Button
-            android:id="@+id/home_button1"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:background="@drawable/ic_btn_fill_org"
-            android:fontFamily="@font/dongle_bold"
-            android:gravity="center"
-            android:text="@string/home_btn_prac"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

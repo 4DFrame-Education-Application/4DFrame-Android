@@ -29,7 +29,6 @@ class ConstLoadingView : AppCompatActivity() {
             // 일정 시간이 지나면 결과 화면으로 이동
             val intent = Intent(this, ConstResultActivity::class.java)
             startActivity(intent)
-            finish()
         }, 3000) // 로딩 시간: 3초
     }
 }

@@ -1,14 +1,18 @@
 package com.blockmaker.fdland.presentation.build.viewmodel
 
+import android.content.Context
 import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.blockmaker.fdland.data.Repository.ConstRepository
+import com.blockmaker.fdland.data.repository.ConstRepository
 import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import java.io.File
 
 class ConstGalleryViewModel(private val constRepository: ConstRepository) : ViewModel() {
 
@@ -18,34 +22,35 @@ class ConstGalleryViewModel(private val constRepository: ConstRepository) : View
     private val _navigateToNextPage = MutableLiveData<Boolean>()
     val navigateToNextPage: LiveData<Boolean> get() = _navigateToNextPage
 
-    private val _setConstImgIsSuccess = MutableLiveData<Boolean?>(null)
+    private val _setConstImgIsSuccess = MutableLiveData<Boolean?>()
     val setConstImgIsSuccess: LiveData<Boolean?> get() = _setConstImgIsSuccess
-
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> get() = _isLoading
 
     fun selectImage(uri: Uri) {
         _selectedImage.value = uri
-        _navigateToNextPage.value = true // 한 장의 이미지만 선택해도 다음 페이지로 이동
     }
 
-    fun setConstImg(accessToken: String, imgUrl: MultipartBody.Part) {
-        _isLoading.value = true
+    fun setConstImg(context: Context, uri: Uri) {
         viewModelScope.launch {
             try {
-                val response = constRepository.setConstImg(accessToken, imgUrl)
+                val file = File(uri.path ?: "")
+                val requestFile = RequestBody.create(
+                    context.contentResolver.getType(uri)?.toMediaTypeOrNull(),
+                    file
+                )
+                val body = MultipartBody.Part.createFormData("imgUrl", file.name, requestFile)
+
+                val response = constRepository.setConstImg(body)
                 if (response.isSuccessful) {
                     _setConstImgIsSuccess.value = true
-                    Log.d("CONST/IMGPOST/T", response.body().toString())
+                    Log.d("Upload", "Success: ${response.body()}")
+                    _navigateToNextPage.value = true
                 } else {
                     _setConstImgIsSuccess.value = false
-                    Log.d("CONST/IMGPOST/F", response.errorBody()?.string()!!)
+                    Log.d("Upload", "Failure: ${response.errorBody()?.string()}")
                 }
             } catch (e: Exception) {
                 _setConstImgIsSuccess.value = false
-                Log.d("CONST/IMGPOST/E", "Error during image upload: ${e.message}")
-            } finally {
-                _isLoading.value = false
+                Log.e("Upload", "Error: ${e.localizedMessage}", e)
             }
         }
     }

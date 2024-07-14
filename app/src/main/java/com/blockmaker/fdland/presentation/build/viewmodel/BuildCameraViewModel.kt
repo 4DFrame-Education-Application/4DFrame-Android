@@ -25,6 +25,8 @@ class BuildCameraViewModel : ViewModel() {
 
     private lateinit var cameraExecutor: ExecutorService
     private var imageCapture: ImageCapture? = null
+    private var photoCount = 0
+    private val maxPhotos = 5
 
     fun initialize() {
         cameraExecutor = Executors.newSingleThreadExecutor()
@@ -85,9 +87,12 @@ class BuildCameraViewModel : ViewModel() {
                     Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
                     Log.d(TAG, msg)
 
-                    // Move to BuildLoadingActivity after capturing the photo
-                    val intent = Intent(context, BuildLoadingView::class.java)
-                    context.startActivity(intent)
+                    photoCount++
+                    if (photoCount >= maxPhotos) {
+                        // 모든 사진을 찍은 후 로딩 창으로 이동
+                        val intent = Intent(context, BuildLoadingView::class.java)
+                        context.startActivity(intent)
+                    }
                 }
             }
         )

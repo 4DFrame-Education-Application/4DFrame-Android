@@ -263,14 +263,15 @@
                     android:id="@+id/ment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
                     android:fontFamily="@font/dongle_regular"
                     android:gravity="center"
                     android:text="참 잘했어요!"
                     android:textColor="@color/black"
                     android:textSize="24sp"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-                    tools:layout_editor_absoluteX="18dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

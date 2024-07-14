@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -18,13 +19,25 @@ import com.blockmaker.fdland.presentation.build.viewmodel.BuildCameraViewModel
 class BuildCameraActivity : AppCompatActivity() {
 
     private lateinit var previewView: PreviewView
+    private lateinit var explainImageView: ImageView
     private val viewModel: BuildCameraViewModel by viewModels()
+    private val imageResources = listOf(
+        R.drawable.explain_build_front,
+        R.drawable.explain_build_back,
+        R.drawable.explain_build_left,
+        R.drawable.explain_build_right,
+        R.drawable.explain_build_up,
+        R.drawable.explain_build_up
+
+    )
+    private var imageIndex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_build_cam)
 
         previewView = findViewById(R.id.preview_view)
+        explainImageView = findViewById(R.id.explain_image_view)
         val cameraButton: ImageButton = findViewById(R.id.button_cam)
         val buttonPrev: Button = findViewById(R.id.toolbar_previous)
 
@@ -41,7 +54,15 @@ class BuildCameraActivity : AppCompatActivity() {
 
         viewModel.initialize()
 
-        cameraButton.setOnClickListener { viewModel.takePhoto(this) }
+        cameraButton.setOnClickListener {
+            viewModel.takePhoto(this)
+            updateExplainImageView()
+        }
+    }
+
+    private fun updateExplainImageView() {
+        imageIndex = (imageIndex + 1) % imageResources.size
+        explainImageView.setImageResource(imageResources[imageIndex])
     }
 
     private fun allPermissionsGranted(): Boolean {

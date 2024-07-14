@@ -7,12 +7,10 @@ import retrofit2.Response
 interface ConstructDataSource {
 
     suspend fun setConstImg(
-        accessToken: String,
-        imgUrl: MultipartBody.Part
+        image_url: MultipartBody.Part
     ): Response<Void>
 
     suspend fun getConstImg(
-        accessToken: String,
-        imgUrl: MultipartBody.Part
+        image_url: MultipartBody.Part
     ): Response<ConstructResponse>
 }

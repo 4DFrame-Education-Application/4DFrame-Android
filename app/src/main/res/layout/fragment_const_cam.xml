@@ -58,42 +58,53 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-        <FrameLayout
-            android:id="@+id/camera_frame"
-            android:layout_width="match_parent"
-            android:layout_height="530dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/ic_btn_org_stroke"
-            app:layout_constraintBottom_toTopOf="@+id/button_cam"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout3" >
+    <FrameLayout
+        android:id="@+id/camera_frame"
+        android:layout_width="match_parent"
+        android:layout_height="530dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_btn_org_stroke"
+        app:layout_constraintBottom_toTopOf="@+id/button_cam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout3" >
 
-            <androidx.camera.view.PreviewView
-                android:id="@+id/preview_view"
+        <androidx.camera.view.PreviewView
+            android:id="@+id/preview_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/ic_btn_org_angle_stroke">
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center" />
+                android:text="아래 보이는 네모에 맞춰서 찍어주세요!"
+                android:fontFamily="@font/dongle_regular"
+                android:textSize="30sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"/>
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:paddingTop="30dp"
-                android:paddingBottom="30dp"
-                android:background="@drawable/ic_btn_gry_white_stroke">
-
-                <ImageView
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/logo_1" />
-            </FrameLayout>
         </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="100dp"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:background="@drawable/ic_btn_gry_angle_stroke"/>
+    </FrameLayout>
 
     <ImageButton
         android:id="@+id/button_cam"
@@ -102,7 +113,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="15dp"
         android:gravity="center"
         android:background="@color/white"
         android:src="@drawable/ic_btn_camera" />

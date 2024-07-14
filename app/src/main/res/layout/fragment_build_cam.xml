@@ -64,8 +64,9 @@
         android:layout_width="match_parent"
         android:layout_height="530dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/ic_btn_org_stroke"
         app:layout_constraintBottom_toTopOf="@+id/button_cam"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,10 +87,11 @@
             android:background="@drawable/ic_btn_org_white_stroke">
 
             <ImageView
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:id="@+id/explain_image_view"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:layout_gravity="center"
-                android:src="@drawable/logo_1" />
+                android:src="@drawable/explain_build_front" />
         </FrameLayout>
     </FrameLayout>
 
@@ -100,7 +102,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="15dp"
         android:gravity="center"
         android:background="@color/white"
         android:src="@drawable/ic_btn_camera" />

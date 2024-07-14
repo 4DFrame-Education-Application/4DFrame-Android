@@ -12,16 +12,14 @@ class ConstructDataSourceImpl : ConstructDataSource {
         RetrofitClient.getRetrofit()?.create(ConstructRetrofitInterface::class.java)
 
     override suspend fun setConstImg(
-        accessToken: String,
-        imgUrl: MultipartBody.Part
+        image_url: MultipartBody.Part
     ): Response<Void> {
-        return constructService!!.setConstImg(accessToken, imgUrl)
+        return constructService!!.setConstImg(image_url)
     }
 
     override suspend fun getConstImg(
-        accessToken: String,
-        imgUrl: MultipartBody.Part
+        image_url: MultipartBody.Part
     ): Response<ConstructResponse> {
-        return constructService!!.getConstImg(accessToken, imgUrl)
+        return constructService!!.getConstImg(image_url)
     }
 }

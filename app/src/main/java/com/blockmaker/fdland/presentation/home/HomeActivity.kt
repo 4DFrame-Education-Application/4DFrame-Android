@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.blockmaker.fdland.R
+import com.blockmaker.fdland.presentation.practice.PracticePickerActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -19,7 +20,7 @@ class HomeActivity : AppCompatActivity() {
 
         // 블럭 쌓기 버튼 클릭 이벤트 처리
         button1.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, PracticePickerActivity::class.java)
             startActivity(intent)
         }
 

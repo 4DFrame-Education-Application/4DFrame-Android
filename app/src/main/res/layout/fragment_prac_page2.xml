@@ -365,7 +365,6 @@
                     android:id="@+id/ment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
                     android:fontFamily="@font/dongle_regular"
                     android:gravity="center"
                     android:text="참 잘했어요!"
