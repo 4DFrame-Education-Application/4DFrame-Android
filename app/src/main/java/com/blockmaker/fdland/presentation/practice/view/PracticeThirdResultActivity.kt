@@ -1,4 +1,4 @@
-package com.blockmaker.fdland.presentation.practice
+package com.blockmaker.fdland.presentation.practice.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,11 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.blockmaker.fdland.R
 import com.blockmaker.fdland.presentation.main.HomeActivity
 
-class PracticeFirstResultActivity : AppCompatActivity() {
+class PracticeThirdResultActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_prac_page1)
+        setContentView(R.layout.fragment_prac_page3)
 
         val button1: Button = findViewById(R.id.toolbar_btn_again)
         val button2: Button = findViewById(R.id.toolbar_btn_main)

@@ -1,6 +1,6 @@
 package com.blockmaker.fdland.data.source.remote.construct
 
-import com.blockmaker.fdland.data.model.ConstructResponse
+import com.blockmaker.fdland.data.model.ConstructImgResponse
 import okhttp3.MultipartBody
 import retrofit2.Response
 
@@ -11,6 +11,6 @@ interface ConstructDataSource {
     ): Response<Void>
 
     suspend fun getConstImg(
-        image_url: MultipartBody.Part
-    ): Response<ConstructResponse>
+        image_url: String
+    ): Response<ConstructImgResponse>
 }

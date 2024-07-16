@@ -1,4 +1,4 @@
-package com.blockmaker.fdland.presentation.practice
+package com.blockmaker.fdland.presentation.practice.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.blockmaker.fdland.R
 import com.blockmaker.fdland.presentation.main.HomeActivity
-import com.blockmaker.fdland.presentation.main.MainActivity
 
 class PracticePickerActivity : AppCompatActivity() {
 
@@ -32,7 +31,7 @@ class PracticePickerActivity : AppCompatActivity() {
 
         // 유형 보기 ((추후 업뎃))
         button2.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, PracticeTypeExplainActivity::class.java)
             startActivity(intent)
         }
 

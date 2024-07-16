@@ -6,7 +6,7 @@
 
     <data>
         <variable
-            name="ResultList"
+            name="resultList"
             type="com.blockmaker.fdland.data.model.ResultList" />
     </data>
 
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dongle_regular"
                 android:gravity="center"
-                android:text="@{ResultList.name}"
+                android:text="@{resultList.name}"
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dongle_regular"
                 android:gravity="center"
-                android:text="@{ResultList.accuracy}"
+                android:text="@{resultList.accuracy}"
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dongle_regular"
                 android:gravity="center"
-                android:text="@{ResultList.rate}"
+                android:text="@{resultList.rate}"
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"

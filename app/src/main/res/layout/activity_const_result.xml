@@ -7,7 +7,7 @@
     <data>
         <variable
             name="constructImg"
-            type="com.blockmaker.fdland.data.model.ConstructImg" />
+            type="com.blockmaker.fdland.data.model.ConstructImgResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

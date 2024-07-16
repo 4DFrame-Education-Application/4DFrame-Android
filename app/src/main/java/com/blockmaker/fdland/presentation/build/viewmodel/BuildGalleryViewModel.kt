@@ -14,9 +14,6 @@ class BuildGalleryViewModel : ViewModel() {
     private val _navigateToNextPage = MutableLiveData<Boolean>()
     val navigateToNextPage: LiveData<Boolean> get() = _navigateToNextPage
 
-    private val _resultData = MutableLiveData<List<ResultList>>()
-    val resultData: LiveData<List<ResultList>> get() = _resultData
-
     private val maxImageCount = 5
 
     fun selectImage(uri: Uri) {

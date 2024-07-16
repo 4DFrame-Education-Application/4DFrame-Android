@@ -8,9 +8,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.blockmaker.fdland.R
-import com.blockmaker.fdland.data.repository.ConstRepository
-import com.blockmaker.fdland.data.source.remote.construct.ConstructDataSourceImpl
 import com.blockmaker.fdland.databinding.FragmentConstGallBinding
 import com.blockmaker.fdland.presentation.build.viewmodel.ConstGalleryViewModel
 import com.blockmaker.fdland.presentation.common.ViewModelFactory
@@ -18,12 +15,12 @@ import com.bumptech.glide.Glide
 
 class ConstGalleryActivity : AppCompatActivity() {
 
-    private val constRepository by lazy { ConstRepository(ConstructDataSourceImpl()) }
-    private val constGalleryViewModel: ConstGalleryViewModel by viewModels {
-        ViewModelFactory(constRepository)
-    }
-
+    private val viewModel: ConstGalleryViewModel by viewModels { ViewModelFactory() }
     private lateinit var binding: FragmentConstGallBinding
+
+    private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        uri?.let { viewModel.selectImage(it) }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,21 +45,21 @@ class ConstGalleryActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
-        constGalleryViewModel.selectedImage.observe(this, Observer { uri ->
+        viewModel.selectedImage.observe(this, Observer { uri ->
             uri?.let {
                 loadImage(it)
-                constGalleryViewModel.setConstImg(this, it)
+                viewModel.setConstImg(this, it)
             }
         })
 
-        constGalleryViewModel.navigateToNextPage.observe(this, Observer { shouldNavigate ->
+        viewModel.navigateToNextPage.observe(this, Observer { shouldNavigate ->
             if (shouldNavigate) {
                 moveToNextPage()
-                constGalleryViewModel.resetNavigation()
+                viewModel.resetNavigation()
             }
         })
 
-        constGalleryViewModel.setConstImgIsSuccess.observe(this, Observer { isSuccess ->
+        viewModel.setConstImgIsSuccess.observe(this, Observer { isSuccess ->
             isSuccess?.let {
                 if (it) {
                     moveToNextPage()
@@ -71,10 +68,6 @@ class ConstGalleryActivity : AppCompatActivity() {
                 }
             }
         })
-    }
-
-    private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-        uri?.let { constGalleryViewModel.selectImage(it) }
     }
 
     private fun openImageChooser() {

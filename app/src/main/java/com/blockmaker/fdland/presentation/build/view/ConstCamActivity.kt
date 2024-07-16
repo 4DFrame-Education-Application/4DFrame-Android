@@ -12,13 +12,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LifecycleOwner
 import com.blockmaker.fdland.R
+import com.blockmaker.fdland.data.repository.ConstRepository
 import com.blockmaker.fdland.presentation.build.viewmodel.ConstCamViewModel
+import com.blockmaker.fdland.presentation.common.ViewModelFactory
 
-class ConstCamActivity : AppCompatActivity() {
+class ConstCamActivity : AppCompatActivity(), LifecycleOwner {
 
     private lateinit var previewView: PreviewView
-    private val viewModel: ConstCamViewModel by viewModels()
+    private val viewModel: ConstCamViewModel by viewModels { ViewModelFactory() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +32,7 @@ class ConstCamActivity : AppCompatActivity() {
         val buttonPrev: Button = findViewById(R.id.toolbar_previous)
 
         buttonPrev.setOnClickListener {
-            val intent = Intent(this, ConstructActivity::class.java)
+            val intent = Intent(this, BuildActivity::class.java)
             startActivity(intent)
         }
 
@@ -41,7 +44,9 @@ class ConstCamActivity : AppCompatActivity() {
 
         viewModel.initialize()
 
-        cameraButton.setOnClickListener { viewModel.takePhoto(this) }
+        cameraButton.setOnClickListener {
+            viewModel.takePhoto(this)
+        }
     }
 
     private fun allPermissionsGranted(): Boolean {

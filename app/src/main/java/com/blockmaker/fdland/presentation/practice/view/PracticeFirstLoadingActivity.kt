@@ -1,4 +1,4 @@
-package com.blockmaker.fdland.presentation.practice
+package com.blockmaker.fdland.presentation.practice.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.blockmaker.fdland.R
 
-class PracticeSecondLoadingActivity : AppCompatActivity() {
+class PracticeFirstLoadingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_prac_loading)
@@ -15,8 +15,8 @@ class PracticeSecondLoadingActivity : AppCompatActivity() {
         // 일정 시간 지연 이후 실행하기 위한 코드
         Handler(Looper.getMainLooper()).postDelayed({
 
-            // 일정 시간이 지나면 PracticeSecondResultActivity 이동
-            val intent= Intent( this, PracticeSecondResultActivity::class.java)
+            // 일정 시간이 지나면 PracticeFirstResultActivity 이동
+            val intent= Intent( this, PracticeFirstResultActivity::class.java)
             startActivity(intent)
 
             finish()

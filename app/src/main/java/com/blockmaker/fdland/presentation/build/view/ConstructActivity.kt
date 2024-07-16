@@ -16,7 +16,7 @@ class ConstructActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_build)
+        setContentView(R.layout.fragment_const)
 
         val buttonPrev: Button = findViewById(R.id.toolbar_previous)
         val buttonLinearLayout1: LinearLayout = findViewById(R.id.buttonLinearLayout1)

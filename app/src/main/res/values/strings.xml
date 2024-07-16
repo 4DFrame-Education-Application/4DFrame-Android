@@ -21,4 +21,15 @@
     <string name="item_acc">정확도</string>
     <string name="item_heart">하트</string>
     <string name="result_const">우와 잘했어요 짝짝</string>
+    <string name="type_original">기본</string>
+    <string name="type_step">계단</string>
+    <string name="type_together">모아</string>
+    <string name="type_change">틀어</string>
+    <string name="type_zigzag">지그재그</string>
+    <string name="type_stand">세워</string>
+    <string name="type_cross">교차</string>
+    <string name="type_turn">돌려</string>
+    <string name="type_lean">기대</string>
+    <string name="type_askew">비스듬</string>
+    <string name="ConstCam_Explain">아래 보이는 네모에 맞춰서 찍어주세요!</string>
 </resources>

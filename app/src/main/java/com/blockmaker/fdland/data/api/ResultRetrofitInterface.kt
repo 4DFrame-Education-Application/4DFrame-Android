@@ -1,6 +1,6 @@
 package com.blockmaker.fdland.data.api
 
-import com.blockmaker.fdland.data.model.ResultList
+import com.blockmaker.fdland.data.model.ResultResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -8,10 +8,10 @@ import retrofit2.http.Query
 
 interface ResultRetrofitInterface {
     @GET("results/upload")
-    suspend fun getResult(
-        @Header("Authorization") accessToken: String,
-        @Query("name") name: String? = null,
-        @Query("accuracy") accuracy: String? = null,
-        @Query("imageUrl") imageUrl: String? = null
-    ): Call<List<ResultList>>
+    fun getResult(
+        @Query("name") name: String?,
+        @Query("accuracy") accuracy: String?,
+        @Query("rate") rate: String?,
+        @Query("imageUrl") imageUrl: String?
+    ): Call<ResultResponse>
 }

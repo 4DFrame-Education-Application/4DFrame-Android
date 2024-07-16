@@ -1,4 +1,4 @@
-package com.blockmaker.fdland.presentation.practice
+package com.blockmaker.fdland.presentation.practice.view
 
 import android.content.Intent
 import android.os.Bundle

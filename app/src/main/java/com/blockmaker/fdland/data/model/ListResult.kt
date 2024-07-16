@@ -12,3 +12,10 @@ data class ResultList (
     @SerializedName("imageUrl")
     val imageUrl: String
     )
+
+data class ResultResponse(
+    @SerializedName("count")
+    val count: Int,
+    @SerializedName("results")
+    val results: List<ResultList>
+)
