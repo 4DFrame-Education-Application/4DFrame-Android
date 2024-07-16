@@ -2,7 +2,9 @@ package com.blockmaker.fdland.data.source.remote.result
 
 import com.blockmaker.fdland.data.api.ResultRetrofitInterface
 import com.blockmaker.fdland.data.model.ResultResponse
-import com.greenfriends.zeroway.data.api.RetrofitClient
+//import com.greenfriends.zeroway.data.api.RetrofitClient
+import com.blockmaker.fdland.data.api.ConstructRetrofitInterface
+import com.blockmaker.fdland.data.api.RetrofitClient
 import retrofit2.Call
 import retrofit2.Response
 
