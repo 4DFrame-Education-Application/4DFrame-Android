@@ -6,7 +6,7 @@
 
     <data>
         <variable
-            name="constructImg"
+            name="ConstructImgResponse"
             type="com.blockmaker.fdland.data.model.ConstructImgResponse" />
     </data>
 
@@ -73,7 +73,7 @@
             android:layout_width="300dp"
             android:layout_height="425dp"
             android:importantForAccessibility="no"
-            android:src="@{constructImg.imageUrl}"
+            android:src="@{ConstructImgResponse.image_url}"
             app:layout_constraintBottom_toTopOf="@+id/result"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

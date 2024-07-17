@@ -72,7 +72,7 @@
             android:id="@+id/imageView"
             android:layout_width="310dp"
             android:layout_height="310dp"
-            android:src="@drawable/block_ex"
+            android:src="@drawable/img_prac_result_3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -464,17 +464,6 @@
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/ment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/dongle_regular"
-                    android:gravity="center"
-                    android:text="참 잘했어요!"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
-                    tools:layout_editor_absoluteX="18dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

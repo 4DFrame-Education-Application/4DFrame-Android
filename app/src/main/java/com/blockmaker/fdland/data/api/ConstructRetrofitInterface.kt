@@ -2,8 +2,6 @@ package com.blockmaker.fdland.data.api
 
 import com.blockmaker.fdland.data.model.ConstructImgResponse
 import okhttp3.MultipartBody
-import okhttp3.ResponseBody
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Multipart
@@ -23,10 +21,4 @@ interface ConstructRetrofitInterface {
     suspend fun getConstImg(
         @Query("image_url") image_url: String
     ): Response<ConstructImgResponse>
-
-    @Multipart
-    @POST("/composition/composition-upload")
-    fun uploadSingleImage(
-        @Part image: MultipartBody.Part
-    ): Call<ResponseBody>
 }

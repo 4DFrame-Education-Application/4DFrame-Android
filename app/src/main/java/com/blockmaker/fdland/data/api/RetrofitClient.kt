@@ -1,4 +1,4 @@
-package com.greenfriends.zeroway.data.api
+package com.blockmaker.fdland.data.api
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

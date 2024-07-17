@@ -36,14 +36,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_gravity="end"
+                android:fontFamily="@font/dongle_bold"
+                android:gravity="center"
                 android:padding="10dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/main_build"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/dongle_bold"
-                android:text="@string/main_build" />
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="78dp"

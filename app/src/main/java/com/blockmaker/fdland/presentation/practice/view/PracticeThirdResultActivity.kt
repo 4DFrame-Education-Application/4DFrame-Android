@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.blockmaker.fdland.R
-import com.blockmaker.fdland.presentation.main.HomeActivity
+import com.blockmaker.fdland.presentation.home.HomeActivity
 
 class PracticeThirdResultActivity : AppCompatActivity() {
 

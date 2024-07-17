@@ -72,11 +72,11 @@
             android:id="@+id/imageView"
             android:layout_width="310dp"
             android:layout_height="310dp"
-            android:src="@drawable/block_ex"
+            android:src="@drawable/img_prac_result_1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="10dp"/>
+            android:layout_margin="10dp"/>
 
         <TextView
             android:id="@+id/result_text"
@@ -86,8 +86,8 @@
             android:fontFamily="@font/dongle_bold"
             android:gravity="center"
             android:padding="5dp"
-            android:textSize="20dp"
-            android:text="총 2개의 유형이 쓰였어요!"
+            android:textSize="20sp"
+            android:text="@string/prac_result_1"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -121,7 +121,7 @@
                         android:gravity="center"
                         android:text="@string/item_type"
                         android:textColor="@color/black"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -150,7 +150,7 @@
                         android:gravity="center"
                         android:text="@string/item_heart"
                         android:textColor="@color/black"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -172,7 +172,7 @@
                         android:gravity="center"
                         android:text="기본"
                         android:textColor="@color/black"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -187,7 +187,7 @@
                         android:gravity="center"
                         android:text="95%"
                         android:textColor="@color/black"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/item_accuracy1"
                         app:layout_constraintStart_toEndOf="@id/item_type1"
@@ -201,7 +201,7 @@
                         android:gravity="center"
                         android:text="♥♥♥♥♥"
                         android:textColor="@color/black"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -238,7 +238,7 @@
                         android:gravity="center"
                         android:text="95%"
                         android:textColor="@color/black"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/item_accuracy2"
                         app:layout_constraintStart_toEndOf="@id/item_type2"
@@ -252,26 +252,13 @@
                         android:gravity="center"
                         android:text="♥♥♥♥♥"
                         android:textColor="@color/black"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/ment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/dongle_regular"
-                    android:gravity="center"
-                    android:text="참 잘했어요!"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

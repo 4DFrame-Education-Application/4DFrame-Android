@@ -13,6 +13,6 @@ class PracticeZigzagFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_build_result_front, container, false)
+        return inflater.inflate(R.layout.fragment_prac_type_zigzag, container, false)
     }
 }

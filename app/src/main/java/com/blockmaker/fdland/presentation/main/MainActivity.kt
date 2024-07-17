@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.blockmaker.fdland.databinding.ActivityMainBinding
 import com.blockmaker.fdland.presentation.build.view.BuildActivity
 import com.blockmaker.fdland.presentation.build.view.ConstructActivity
+import com.blockmaker.fdland.presentation.home.HomeActivity
 
 class MainActivity : AppCompatActivity() {
 

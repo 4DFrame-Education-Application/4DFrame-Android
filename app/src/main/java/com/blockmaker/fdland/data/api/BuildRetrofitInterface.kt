@@ -14,10 +14,10 @@ interface BuildRetrofitInterface {
     @Multipart
     @POST("results/upload")
     suspend fun setImageupload(
-
         @Part imageUrl: String
     ): Response<Void>
 
+    /** 카메라 페이지: 이미지 받기 **/
     @GET("results/upload")
     suspend fun getImageupload(
         @Query("accuracy") accuracy: String?,

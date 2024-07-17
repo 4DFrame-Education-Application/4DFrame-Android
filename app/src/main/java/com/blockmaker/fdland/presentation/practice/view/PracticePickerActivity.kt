@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.blockmaker.fdland.R
-import com.blockmaker.fdland.presentation.main.HomeActivity
+import com.blockmaker.fdland.presentation.home.HomeActivity
 
 class PracticePickerActivity : AppCompatActivity() {
 

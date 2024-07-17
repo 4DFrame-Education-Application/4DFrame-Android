@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="310dp"
@@ -20,20 +19,20 @@
 
     <TextView
         android:id="@+id/result_text"
-        android:text="총평 출력"
+        android:text="유형 개수 출력"
         android:textColor="@color/black"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="10dp"
+        android:layout_margin="3dp"
+        android:padding="5dp"
+        android:textSize="20dp"
         android:fontFamily="@font/dongle_regular"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/result_text"
@@ -42,13 +41,14 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content" >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/ic_btn_border_gray"
                 android:gravity="center"
                 android:padding="15dp"
@@ -110,19 +110,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                android:id="@+id/ment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/dongle_regular"
-                android:gravity="center"
-                android:text="@string/item_count"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-                android:layout_margin="10dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

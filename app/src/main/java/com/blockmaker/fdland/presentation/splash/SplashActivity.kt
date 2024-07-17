@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.blockmaker.fdland.R
-import com.blockmaker.fdland.presentation.main.HomeActivity
+import com.blockmaker.fdland.presentation.home.HomeActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

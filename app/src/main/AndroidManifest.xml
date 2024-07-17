@@ -84,7 +84,7 @@
         <activity android:name=".presentation.build.view.BuildActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.main.HomeActivity"
+        <activity android:name=".presentation.home.HomeActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".presentation.main.MainActivity"
