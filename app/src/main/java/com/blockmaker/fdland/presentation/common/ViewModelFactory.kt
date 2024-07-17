@@ -32,7 +32,7 @@ package com.blockmaker.fdland.presentation.common
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.blockmaker.fdland.data.Repository.ConstRepository
+import com.blockmaker.fdland.data.repository.ConstRepository
 import com.blockmaker.fdland.presentation.build.viewmodel.ConstGalleryViewModel
 import com.blockmaker.fdland.presentation.build.viewmodel.ConstCamViewModel
 
