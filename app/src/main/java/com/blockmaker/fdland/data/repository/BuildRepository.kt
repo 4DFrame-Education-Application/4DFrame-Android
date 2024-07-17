@@ -1,9 +1,12 @@
 package com.blockmaker.fdland.data.repository
 
 import android.content.ContentResolver
+import android.content.ContentUris
 import android.content.Context
 import android.database.Cursor
 import android.net.Uri
+import android.os.Environment
+import android.provider.DocumentsContract
 import android.provider.MediaStore
 import com.blockmaker.fdland.data.api.BuildRetrofitInterface
 import com.blockmaker.fdland.data.api.RetrofitClient
@@ -46,7 +49,10 @@ class BuildRepository {
             apiService.uploadMultipleImages(
                 fileParts[0], fileParts[1], fileParts[2], fileParts[3], fileParts[4]
             ).enqueue(object : Callback<ResponseBody> {
-                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
                     if (response.isSuccessful) {
                         val responseBody = response.body()?.string()
                         if (responseBody != null) {
@@ -69,32 +75,77 @@ class BuildRepository {
     }
 
     private fun getRealPathFromURI(context: Context, uri: Uri): String? {
-        val contentResolver: ContentResolver = context.contentResolver
-        val projection = arrayOf(MediaStore.Images.Media.DATA)
-        val cursor: Cursor? = contentResolver.query(uri, projection, null, null, null)
-
-        return cursor?.use {
-            if (it.moveToFirst()) {
-                val idx: Int = it.getColumnIndex(MediaStore.Images.Media.DATA)
-                if (idx != -1) {
-                    it.getString(idx)
-                } else {
-                    // 열 인덱스를 찾을 수 없는 경우, 다른 접근 방식 사용
-                    getFileFromUri(context, uri)
+        // DocumentProvider
+        if (DocumentsContract.isDocumentUri(context, uri)) {
+            if (isExternalStorageDocument(uri)) {
+                val docId = DocumentsContract.getDocumentId(uri)
+                val split = docId.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+                val type = split[0]
+                if ("primary".equals(type, ignoreCase = true)) {
+                    return "${Environment.getExternalStorageDirectory()}/${split[1]}"
                 }
-            } else {
-                null
+            } else if (isDownloadsDocument(uri)) {
+                val id = DocumentsContract.getDocumentId(uri)
+                val contentUri = ContentUris.withAppendedId(
+                    Uri.parse("content://downloads/public_downloads"), java.lang.Long.valueOf(id)
+                )
+                return getDataColumn(context, contentUri, null, null)
+            } else if (isMediaDocument(uri)) {
+                val docId = DocumentsContract.getDocumentId(uri)
+                val split = docId.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+                val type = split[0]
+                var contentUri: Uri? = null
+                if ("image" == type) {
+                    contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                } else if ("video" == type) {
+                    contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+                } else if ("audio" == type) {
+                    contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
+                }
+                val selection = "_id=?"
+                val selectionArgs = arrayOf(split[1])
+                return getDataColumn(context, contentUri, selection, selectionArgs)
             }
-        } ?: getFileFromUri(context, uri)
+        } else if ("content".equals(uri.scheme, ignoreCase = true)) {
+            // MediaStore (and general)
+            return getDataColumn(context, uri, null, null)
+        } else if ("file".equals(uri.scheme, ignoreCase = true)) {
+            return uri.path
+        }
+        return null
     }
 
-    // 보조 함수: URI로부터 파일 경로를 가져옴
-    private fun getFileFromUri(context: Context, uri: Uri): String? {
-        return try {
-            val file = File(uri.path)
-            if (file.exists()) file.absolutePath else null
-        } catch (e: Exception) {
-            null
+    private fun getDataColumn(
+        context: Context,
+        uri: Uri?,
+        selection: String?,
+        selectionArgs: Array<String>?
+    ): String? {
+        var cursor: Cursor? = null
+        val column = "_data"
+        val projection = arrayOf(column)
+        try {
+            cursor =
+                context.contentResolver.query(uri!!, projection, selection, selectionArgs, null)
+            if (cursor != null && cursor.moveToFirst()) {
+                val columnIndex: Int = cursor.getColumnIndexOrThrow(column)
+                return cursor.getString(columnIndex)
+            }
+        } finally {
+            cursor?.close()
         }
+        return null
+    }
+
+    private fun isExternalStorageDocument(uri: Uri): Boolean {
+        return "com.android.externalstorage.documents" == uri.authority
+    }
+
+    private fun isDownloadsDocument(uri: Uri): Boolean {
+        return "com.android.providers.downloads.documents" == uri.authority
+    }
+
+    private fun isMediaDocument(uri: Uri): Boolean {
+        return "com.android.providers.media.documents" == uri.authority
     }
 }
