@@ -60,25 +60,230 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
-        android:gravity="start"
-        android:id="@+id/gallinearLayout1"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout2"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
-            android:id="@+id/buttonLinearLayout1"
+            android:gravity="start"
+            android:id="@+id/gallinearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="30dp">
+
+            <LinearLayout
+                android:id="@+id/buttonLinearLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_btn_fill_org"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_plus"
+                        android:importantForAccessibility="no"
+                        android:layout_gravity="center"/>
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:importantForAccessibility="no" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/build_front"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/dongle_regular"
+                    android:textSize="15sp"/>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="70dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/buttonLinearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_btn_fill_org"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_plus"
+                        android:importantForAccessibility="no"
+                        android:layout_gravity="center"/>
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:importantForAccessibility="no" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/build_back"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/dongle_regular"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gallinearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/gallinearLayout1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:id="@+id/buttonLinearLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_btn_fill_org"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_plus"
+                        android:importantForAccessibility="no"
+                        android:layout_gravity="center"/>
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:importantForAccessibility="no" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/build_left"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/dongle_regular"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="70dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/buttonLinearLayout4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_btn_fill_org"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_plus"
+                        android:importantForAccessibility="no"
+                        android:layout_gravity="center"/>
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:importantForAccessibility="no" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/build_right"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/dongle_regular"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonLinearLayout5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gallinearLayout3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp">
 
             <FrameLayout
                 android:layout_width="120dp"
@@ -98,10 +303,11 @@
                     android:layout_gravity="center"/>
 
                 <ImageView
-                    android:id="@+id/imageView1"
+                    android:id="@+id/imageView5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no" />
+
             </FrameLayout>
 
             <TextView
@@ -112,204 +318,6 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/dongle_regular"
                 android:textSize="15sp"/>
-
         </LinearLayout>
-
-        <Space
-            android:layout_width="70dp"
-            android:layout_height="match_parent" />
-
-        <LinearLayout
-            android:id="@+id/buttonLinearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <FrameLayout
-                android:layout_width="120dp"
-                android:layout_height="170dp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_btn_fill_org"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp"
-                android:textAlignment="center">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_plus"
-                    android:importantForAccessibility="no"
-                    android:layout_gravity="center"/>
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:importantForAccessibility="no" />
-
-            </FrameLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/build_back"
-                android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:fontFamily="@font/dongle_regular"
-                android:textSize="15sp"/>
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/gallinearLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/gallinearLayout1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp">
-
-        <LinearLayout
-            android:id="@+id/buttonLinearLayout3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <FrameLayout
-                android:layout_width="120dp"
-                android:layout_height="170dp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_btn_fill_org"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp"
-                android:textAlignment="center">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_plus"
-                    android:importantForAccessibility="no"
-                    android:layout_gravity="center"/>
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:importantForAccessibility="no" />
-
-            </FrameLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/build_left"
-                android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:fontFamily="@font/dongle_regular"
-                android:textSize="15sp"/>
-        </LinearLayout>
-
-        <Space
-            android:layout_width="70dp"
-            android:layout_height="match_parent" />
-
-        <LinearLayout
-            android:id="@+id/buttonLinearLayout4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <FrameLayout
-                android:layout_width="120dp"
-                android:layout_height="170dp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_btn_fill_org"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp"
-                android:textAlignment="center">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_plus"
-                    android:importantForAccessibility="no"
-                    android:layout_gravity="center"/>
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:importantForAccessibility="no" />
-            </FrameLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/build_right"
-                android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:fontFamily="@font/dongle_regular"
-                android:textSize="15sp"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/buttonLinearLayout5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/gallinearLayout3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp">
-
-        <FrameLayout
-            android:layout_width="120dp"
-            android:layout_height="170dp"
-            android:layout_gravity="center"
-            android:background="@drawable/ic_btn_fill_org"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="8dp"
-            android:textAlignment="center">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_plus"
-                android:importantForAccessibility="no"
-                android:layout_gravity="center"/>
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:importantForAccessibility="no" />
-
-        </FrameLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/build_up"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            android:fontFamily="@font/dongle_regular"
-            android:textSize="15sp"/>
-    </LinearLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

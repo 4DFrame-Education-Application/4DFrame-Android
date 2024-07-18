@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/result_text"
-        android:text="유형 개수 출력"
+        android:text="count 개수"
         android:textColor="@color/black"
         android:gravity="center"
         android:layout_width="match_parent"
@@ -107,7 +107,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                    tools:listitem="@layout/item_result_build"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

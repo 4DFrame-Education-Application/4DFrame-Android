@@ -6,8 +6,11 @@
 
     <data>
         <variable
-            name="resultList"
-            type="com.blockmaker.fdland.data.model.ResultList" />
+            name="buildResultViewModel"
+            type="com.blockmaker.fdland.presentation.build.viewmodel.BuildResultViewModel" />
+        <variable
+            name="buildResult"
+            type="com.blockmaker.fdland.data.model.BuildResult" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dongle_regular"
                 android:gravity="center"
-                android:text="@{resultList.name}"
+                android:text="@{buildResult.name}"
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dongle_regular"
                 android:gravity="center"
-                android:text="@{resultList.accuracy}"
+                android:text="@{buildResult.accuracy}"
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -60,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dongle_regular"
                 android:gravity="center"
-                android:text="@{resultList.rate}"
+                android:text="@{buildResult.rate}"
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"

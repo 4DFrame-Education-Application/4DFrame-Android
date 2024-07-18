@@ -31,7 +31,7 @@
     <string name="type_turn">돌려</string>
     <string name="type_lean">기대</string>
     <string name="type_askew">비스듬</string>
-    <string name="constCam_Explain">아래 보이는 네모에 맞춰서 찍어주세요!</string>
+    <string name="constCam_Explain">아래 보이는 네모에 딱 맞게 찍어주세요!</string>
     <string name="prac_result_1">총 2개의 유형이 쓰였어요!</string>
     <string name="prac_result_2">총 4개의 유형이 쓰였어요!</string>
     <string name="prac_result_3">총 6개의 유형이 쓰였어요!</string>

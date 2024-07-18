@@ -17,5 +17,3 @@ class FrontFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_build_result_front, container, false)
     }
 }
-
-

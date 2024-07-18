@@ -67,10 +67,19 @@ class BuildGalleryActivity : AppCompatActivity() {
                 buildGalleryViewModel.resetNavigation()
             }
         })
+
+        buildGalleryViewModel.uploadStatus.observe(this, Observer { status ->
+            if (status) {
+                // Handle successful upload
+                moveToNextPage()
+            } else {
+                // Handle upload failure
+            }
+        })
     }
 
     private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-        uri?.let { currentIndex?.let { _ -> buildGalleryViewModel.selectImage(it) } }
+        uri?.let { currentIndex?.let { index -> buildGalleryViewModel.selectImage(uri, index) } }
     }
 
     private fun openImageChooser() {

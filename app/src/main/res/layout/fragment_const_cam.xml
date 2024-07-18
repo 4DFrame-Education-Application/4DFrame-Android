@@ -40,7 +40,6 @@
                 android:fontFamily="@font/dongle_bold"
                 android:gravity="center"
                 android:padding="10dp"
-                android:layout_marginRight="15dp"
                 android:text="@string/main_const"
                 android:textColor="@color/black"
                 android:textSize="20sp"
@@ -59,53 +58,34 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
-        android:id="@+id/camera_frame"
-        android:layout_width="match_parent"
-        android:layout_height="530dp"
+    <TextView
+        android:id="@+id/explain_text"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/dongle_regular"
+        android:text="@string/constCam_Explain"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/ic_btn_const_cam_stroke"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="30sp" />
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/preview_view"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/ic_btn_org_stroke"
         app:layout_constraintBottom_toTopOf="@+id/button_cam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout3" >
-
-        <androidx.camera.view.PreviewView
-            android:id="@+id/preview_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center" />
-
-        <FrameLayout
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/ic_btn_org_angle_stroke">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/constCam_Explain"
-                android:fontFamily="@font/dongle_regular"
-                android:textSize="30sp"
-                android:textColor="@color/black"
-                android:textAlignment="center"/>
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="100dp"
-            android:paddingTop="30dp"
-            android:paddingBottom="30dp"
-            android:background="@drawable/ic_btn_gry_angle_stroke"/>
-    </FrameLayout>
+        app:layout_constraintTop_toBottomOf="@+id/explain_text"
+        android:layout_gravity="center" />
 
     <ImageButton
         android:id="@+id/button_cam"
