@@ -7,22 +7,20 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.Observer
 import com.blockmaker.fdland.R
+import com.blockmaker.fdland.data.repository.PhotoRepository
 import com.blockmaker.fdland.presentation.build.viewmodel.BuildCameraViewModel
 
 class BuildCameraActivity : AppCompatActivity() {
 
     private lateinit var previewView: PreviewView
     private lateinit var explainImageView: ImageView
-    private lateinit var progressBar: ProgressBar
     private val viewModel: BuildCameraViewModel by viewModels()
     private val imageResources = listOf(
         R.drawable.explain_build_front,
@@ -38,14 +36,16 @@ class BuildCameraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_build_cam)
 
+        PhotoRepository.clear()  // PhotoRepository의 photoUris 리스트 초기화
+
         previewView = findViewById(R.id.preview_view)
         explainImageView = findViewById(R.id.explain_image_view)
-        progressBar = findViewById(R.id.progress_bar)
         val cameraButton: ImageButton = findViewById(R.id.button_cam)
         val buttonPrev: Button = findViewById(R.id.toolbar_previous)
 
         buttonPrev.setOnClickListener {
-            startActivity(Intent(this, BuildActivity::class.java))
+            val intent = Intent(this, BuildActivity::class.java)
+            startActivity(intent)
         }
 
         if (allPermissionsGranted()) {
@@ -61,16 +61,12 @@ class BuildCameraActivity : AppCompatActivity() {
             updateExplainImageView()
         }
 
-        viewModel.photoCount.observe(this, Observer { count ->
-            if (count >= 5) {
-                viewModel.uploadImages()
-                startActivity(Intent(this, BuildResultActivity::class.java))
+        viewModel.navigateToNextPage.observe(this) { shouldNavigate ->
+            if (shouldNavigate) {
+                moveToLoadingView()
+                viewModel.resetNavigation()
             }
-        })
-
-        viewModel.loading.observe(this, Observer { isLoading ->
-            progressBar.visibility = if (isLoading) ProgressBar.VISIBLE else ProgressBar.GONE
-        })
+        }
     }
 
     private fun updateExplainImageView() {
@@ -95,6 +91,11 @@ class BuildCameraActivity : AppCompatActivity() {
         viewModel.shutdown()
     }
 
+    private fun moveToLoadingView() {
+        val intent = Intent(this, BuildLoadingView::class.java)
+        startActivity(intent)
+    }
+
     companion object {
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
@@ -114,3 +115,4 @@ class BuildCameraActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 }
+

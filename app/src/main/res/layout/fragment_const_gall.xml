@@ -30,20 +30,7 @@
                 android:gravity="center"
                 android:text="@string/toolbar_btn_pre"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:fontFamily="@font/dongle_bold"
-                android:gravity="center"
-                android:padding="10dp"
-                android:layout_marginRight="15dp"
-                android:text="@string/main_const"
-                android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -55,7 +42,22 @@
                 android:background="@color/white"
                 android:src="@drawable/logo3"
                 android:importantForAccessibility="no" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="end"
+                android:padding="10dp"
+                android:layout_marginRight="15dp"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/dongle_bold"
+                android:text="@string/main_const" />
+
         </androidx.appcompat.widget.Toolbar>
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout

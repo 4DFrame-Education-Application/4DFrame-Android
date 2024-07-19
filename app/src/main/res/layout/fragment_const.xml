@@ -26,23 +26,11 @@
                 android:gravity="center"
                 android:layout_gravity="start"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/dongle_bold"
                 android:background="@drawable/ic_btn_invisible"
                 android:text="@string/toolbar_btn_pre" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="end"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/dongle_bold"
-                android:text="@string/main_const" />
 
             <ImageView
                 android:layout_width="78dp"
@@ -51,6 +39,19 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="end"
+                android:padding="10dp"
+                android:layout_marginRight="15dp"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/dongle_bold"
+                android:text="@string/main_const" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -100,7 +101,7 @@
                 android:fontFamily="@font/dongle_regular"
                 android:text="@string/build_cam"
                 android:textColor="@color/white"
-                android:textSize="32dp" />
+                android:textSize="32sp" />
         </LinearLayout>
 
         <Space
@@ -137,7 +138,7 @@
                 android:fontFamily="@font/dongle_regular"
                 android:text="@string/build_gall"
                 android:textColor="@color/white"
-                android:textSize="32dp" />
+                android:textSize="32sp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

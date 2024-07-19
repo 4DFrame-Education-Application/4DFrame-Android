@@ -8,9 +8,7 @@ data class ResultList (
     @SerializedName("accuracy")
     val accuracy: String,
     @SerializedName("rate")
-    val rate: String,
-    @SerializedName("imageUrl")
-    val imageUrl: String
+    val rate: String
     )
 
 data class ResultResponse(

@@ -16,16 +16,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="2dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="10dp"
         android:background="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
             <TextView
@@ -36,7 +39,7 @@
                 android:gravity="center"
                 android:text="@{buildResult.name}"
                 android:textColor="@color/black"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -45,17 +48,17 @@
                 android:id="@+id/item_count"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:fontFamily="@font/dongle_regular"
                 android:gravity="center"
                 android:text="@{buildResult.accuracy}"
                 android:textColor="@color/black"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/item_type"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/item_accuracy"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                app:layout_constraintStart_toEndOf="@id/item_type"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/item_accuracy"
@@ -65,7 +68,7 @@
                 android:gravity="center"
                 android:text="@{buildResult.rate}"
                 android:textColor="@color/black"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

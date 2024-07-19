@@ -27,7 +27,30 @@ class BuildResultActivity : AppCompatActivity() {
         val buttonPrev: Button = findViewById(R.id.toolbar_btn_again)
         val buttonMain: Button = findViewById(R.id.toolbar_btn_main)
 
-        viewPager.adapter = ViewPagerAdapter(this)
+        // intent를 통해 전달받은 데이터 수신
+        val imageUrls = intent.getStringArrayListExtra("imageUrls")
+        val jsonResponse = intent.getStringExtra("json_response")
+
+        // ViewModel에 데이터 설정
+        viewModel.setImageUrls(imageUrls ?: emptyList())
+        viewModel.setJsonResponse(jsonResponse ?: "")
+
+        // ViewPagerAdapter 설정 및 TabLayoutMediator 부착
+        viewModel.imageUrls.observe(this, Observer { urls ->
+            viewModel.jsonResponse.observe(this, Observer { json ->
+                viewPager.adapter = ViewPagerAdapter(this, urls, json)
+                TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                    tab.text = when (position) {
+                        0 -> getString(R.string.build_front)
+                        1 -> getString(R.string.build_back)
+                        2 -> getString(R.string.build_left)
+                        3 -> getString(R.string.build_right)
+                        4 -> getString(R.string.build_up)
+                        else -> getString(R.string.build_front)
+                    }
+                }.attach()
+            })
+        })
 
         buttonPrev.setOnClickListener {
             viewModel.onPrevButtonClicked()
@@ -52,16 +75,5 @@ class BuildResultActivity : AppCompatActivity() {
                 viewModel.onNavigationHandled()
             }
         })
-
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = when (position) {
-                0 -> getString(R.string.build_front)
-                1 -> getString(R.string.build_back)
-                2 -> getString(R.string.build_left)
-                3 -> getString(R.string.build_right)
-                4 -> getString(R.string.build_up)
-                else -> getString(R.string.build_front)
-            }
-        }.attach()
     }
 }

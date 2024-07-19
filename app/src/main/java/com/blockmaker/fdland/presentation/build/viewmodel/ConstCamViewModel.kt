@@ -2,7 +2,6 @@ package com.blockmaker.fdland.presentation.build.viewmodel
 
 import android.content.ContentValues
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore
 import android.util.Log
@@ -14,15 +13,18 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.blockmaker.fdland.data.repository.ConstRepository
+import com.blockmaker.fdland.data.repository.PathRepository
 import com.blockmaker.fdland.presentation.build.view.ConstCamActivity
-import com.blockmaker.fdland.presentation.build.view.ConstResultActivity
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import org.json.JSONObject
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -33,6 +35,14 @@ class ConstCamViewModel(private val constRepository: ConstRepository) : ViewMode
 
     private lateinit var cameraExecutor: ExecutorService
     private var imageCapture: ImageCapture? = null
+    private val _setConstImgIsSuccess = MutableLiveData<UploadResult?>()
+    val setConstImgIsSuccess: LiveData<UploadResult?> get() = _setConstImgIsSuccess
+
+    private val _selectedImage = MutableLiveData<Uri>()
+    val selectedImage: LiveData<Uri> get() = _selectedImage
+
+    private val _navigateToNextPage = MutableLiveData<Boolean>()
+    val navigateToNextPage: LiveData<Boolean> get() = _navigateToNextPage
 
     fun initialize() {
         cameraExecutor = Executors.newSingleThreadExecutor()
@@ -90,58 +100,74 @@ class ConstCamViewModel(private val constRepository: ConstRepository) : ViewMode
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val msg = "사진 찍기 성공: ${output.savedUri}"
-                    showToast(context, msg)
                     Log.d(TAG, msg)
 
+                    Toast.makeText(context, "사진을 서버로 전송 중...", Toast.LENGTH_SHORT).show()
+                    Log.d(TAG, "충분한 사진이 촬영되었습니다. 업로드를 시작합니다.")
+
+                    // 서버로 이미지 전송
                     output.savedUri?.let { uri ->
-                        val file = File(getRealPathFromURI(context, uri)!!)
-                        uploadImage(uri, file, context)
+                        prepareAndSendImage(uri, context)
                     }
                 }
             }
         )
     }
 
-    private fun uploadImage(uri: Uri, file: File, context: Context) {
-        viewModelScope.launch {
-            val requestFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
-            val body = MultipartBody.Part.createFormData("composition_image", file.name, requestFile)
+    fun selectImage(uri: Uri, context: Context) {
+        _selectedImage.value = uri
+        _navigateToNextPage.value = true
+        prepareAndSendImage(uri, context)
+    }
 
-            val response = constRepository.setConstImg(body)
-            if (response.isSuccessful) {
-                Log.d(TAG, "이미지 전송 성공")
-                moveToLoadingView(context, uri.toString())
-            } else {
-                Log.e(TAG, "이미지 전송 실패: ${response.message()}")
-                showToast(context, "이미지 전송 실패")
+    fun resetNavigation() {
+        _navigateToNextPage.value = false
+    }
+
+    private fun prepareAndSendImage(uri: Uri, context: Context) {
+        viewModelScope.launch {
+            try {
+                val filePath = PathRepository.getRealPathFromURI(context, uri) ?: throw IllegalArgumentException("파일 경로를 가져오는 데 실패했습니다.")
+                val file = File(filePath)
+                val requestFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+                val body = MultipartBody.Part.createFormData("composition_image", file.name, requestFile)
+
+                val response = constRepository.setConstImg(body)
+                if (response.isSuccessful) {
+                    val responseBody = response.body()?.string()
+                    Log.d(TAG, "Image upload successful: $responseBody")
+
+                    // 서버에서 반환된 URL 추출
+                    val imageUrl = extractImageUrl(responseBody)
+                    if (imageUrl.isNotEmpty()) {
+                        _setConstImgIsSuccess.value = UploadResult(true, imageUrl)
+                        _navigateToNextPage.value = true // 이미지 업로드가 성공하면 다음 페이지로 이동하도록 설정
+                    } else {
+                        Log.e(TAG, "이미지 URL이 비어있음: $responseBody")
+                        _setConstImgIsSuccess.value = UploadResult(false, null)
+                    }
+                } else {
+                    Log.e(TAG, "이미지 업로드 실패: ${response.errorBody()?.string()}")
+                    _setConstImgIsSuccess.value = UploadResult(false, null)
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "이미지 업로드 예외: ${e.message}", e)
+                _setConstImgIsSuccess.value = UploadResult(false, null)
             }
         }
     }
 
-    private fun moveToLoadingView(context: Context, imageUrl: String) {
-        val intent = Intent(context, ConstResultActivity::class.java)
-        intent.putExtra("image_url", imageUrl)
-        context.startActivity(intent)
-    }
-
-    private fun getRealPathFromURI(context: Context, uri: Uri): String? {
-        var path: String? = null
-        val projection = arrayOf(MediaStore.Images.Media.DATA)
-        val cursor = context.contentResolver.query(uri, projection, null, null, null)
-        cursor?.let {
-            val columnIndex = it.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-            it.moveToFirst()
-            path = it.getString(columnIndex)
-            it.close()
-        }
-        return path
-    }
-
-    private fun showToast(context: Context, message: String) {
-        (context as ConstCamActivity).runOnUiThread {
-            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    private fun extractImageUrl(responseBody: String?): String {
+        return try {
+            val jsonObject = JSONObject(responseBody ?: "{}")
+            jsonObject.optString("image_url", "")
+        } catch (e: Exception) {
+            Log.e(TAG, "JSON 파싱 오류: ${e.message}")
+            ""
         }
     }
+
+    data class UploadResult(val isSuccess: Boolean, val imageUrl: String?)
 
     companion object {
         private const val TAG = "CameraXApp"

@@ -1,6 +1,5 @@
 package com.blockmaker.fdland.presentation.home
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.media.AudioManager
@@ -16,7 +15,6 @@ class HomeActivity : AppCompatActivity() {
 
     private var mediaPlayer: MediaPlayer? = null
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -37,11 +35,11 @@ class HomeActivity : AppCompatActivity() {
         }
 
         val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
-        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, audioManager.getStreamMaxVolume(
-            AudioManager.STREAM_MUSIC), 0)
+        val maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
+        val lowerVolume = maxVolume / 10
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, lowerVolume, 0)
 
         mediaPlayer = MediaPlayer.create(this, R.raw.animation_music)
-        mediaPlayer?.setVolume(1.0F, 1.0F)
         mediaPlayer?.start()
     }
 
@@ -59,7 +57,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() { // MediaPlayer 해제: 액티비티 파괴 시 mediaPlayer 해제(메모리 누수 방지래요)
+    override fun onDestroy() { // MediaPlayer 해제: 액티비티 파괴 시 mediaPlayer 해제(메모리 누수 방지)
         super.onDestroy()
         mediaPlayer?.release()
         mediaPlayer = null

@@ -30,7 +30,7 @@
                 android:gravity="center"
                 android:text="@string/toolbar_btn_pre"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -51,7 +51,7 @@
                 android:gravity="center"
                 android:text="@string/toolbar_btn_type"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
         </androidx.appcompat.widget.Toolbar>
@@ -282,14 +282,14 @@
                         android:gravity="center"
                         android:text="이 중에 한 장을 골라봐!"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="24sp" />
 
                     <ImageView
                         android:id="@+id/imageView6"
                         android:layout_width="100dp"
                         android:layout_height="130dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="20dp"
                         android:importantForAccessibility="no"
                         android:src="@drawable/img_choice_ill" />
                 </FrameLayout>

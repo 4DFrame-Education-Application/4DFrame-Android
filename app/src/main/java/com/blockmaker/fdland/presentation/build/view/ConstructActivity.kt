@@ -12,7 +12,7 @@ import com.blockmaker.fdland.presentation.build.viewmodel.ConstViewModel
 
 class ConstructActivity : AppCompatActivity() {
 
-    private val ConstViewModel: ConstViewModel by viewModels()
+    private val constViewModel: ConstViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,22 +23,38 @@ class ConstructActivity : AppCompatActivity() {
         val buttonLinearLayout2: LinearLayout = findViewById(R.id.buttonLinearLayout2)
 
         buttonPrev.setOnClickListener {
-            ConstViewModel.onPreviousButtonClick()
+            constViewModel.onPreviousButtonClick()
         }
 
         buttonLinearLayout1.setOnClickListener {
-            ConstViewModel.onCameraButtonClick()
+            constViewModel.onCameraButtonClick()
         }
 
         buttonLinearLayout2.setOnClickListener {
-            ConstViewModel.onGalleryButtonClick()
+            constViewModel.onGalleryButtonClick()
         }
 
-        ConstViewModel.navigateToActivity.observe(this, Observer { activityClass ->
+        constViewModel.navigateToActivity.observe(this, Observer { activityClass ->
             activityClass?.let {
                 val intent = Intent(this, it)
                 startActivity(intent)
             }
         })
+    }
+
+    // 생명 주기 메서드 추가
+    override fun onPause() {
+        super.onPause()
+        // 액티비티가 일시 정지될 때 수행할 작업
+    }
+
+    override fun onStop() {
+        super.onStop()
+        // 액티비티가 중지될 때 수행할 작업
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // 액티비티가 파괴될 때 수행할 작업
     }
 }

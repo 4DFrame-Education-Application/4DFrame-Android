@@ -52,6 +52,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView1"
         app:lottie_autoPlay="true"
+        app:lottie_loop="true"
         app:lottie_rawRes="@raw/home_anime" />
 
     <ProgressBar
@@ -60,7 +61,6 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:indeterminate="true"
-        android:minWidth="200dp"
         android:minHeight="50dp"
         android:indeterminateTint="@color/orange"
         app:layout_constraintBottom_toTopOf="@+id/button"
@@ -79,7 +79,7 @@
         android:text="결과 측정 중 ..."
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

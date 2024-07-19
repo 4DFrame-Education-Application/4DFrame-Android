@@ -35,4 +35,34 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    override fun onPause() {
+        super.onPause()
+        // 액티비티가 일시 정지될 때 수행할 작업
+        saveUserData()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        // 액티비티가 중지될 때 수행할 작업
+        releaseResources()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // 액티비티가 파괴될 때 수행할 작업
+        cleanUp()
+    }
+
+    private fun saveUserData() {
+        // 사용자 데이터를 저장하는 로직
+    }
+
+    private fun releaseResources() {
+        // 리소스를 해제하는 로직
+    }
+
+    private fun cleanUp() {
+        // 메모리 누수를 방지하는 정리 작업
+    }
 }

@@ -38,4 +38,5 @@
     <string name="prac_result_4">총 8개의 유형이 쓰였어요!</string>
     <string name="prac_result_5">총 10개의 유형이 쓰였어요!</string>
     <string name="result_good">참 잘했어요!</string>
+    <string name="result_text">총 %1$d개 출력 되었습니다!</string>
 </resources>

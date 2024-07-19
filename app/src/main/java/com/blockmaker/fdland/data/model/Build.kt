@@ -14,8 +14,8 @@ data class BuildResult(
 data class BuildResultResponse(
     @SerializedName("count")
     val count: Int,
-    @SerializedName("data")
-    val BuildResultResponse: List<BuildResult>,
+    @SerializedName("results")
+    val results: List<BuildResult>,
     @SerializedName("back_image")
     val back_image: String,
     @SerializedName("front_image")

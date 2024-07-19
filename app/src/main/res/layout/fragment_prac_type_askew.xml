@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:id="@+id/buttonLinearLayout1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="310dp"
-            android:layout_height="310dp"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
             android:layout_gravity="center"
             android:src="@drawable/type_askew"
             android:background="@drawable/ic_btn_org_white_stroke"
@@ -37,6 +37,18 @@
             android:text="@string/type_askew"
             android:textColor="@color/black"
             android:textSize="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/explain_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/dongle_regular"
+            android:gravity="center"
+            android:text="블록이 최소 '3개'는 있어야 해!\n 최소 1개의 블록이 받침으로 있어야 하고, \n최소 2개 이상의 블록이 비스듬하게 포개져야 하는 거야!"
+            android:textColor="@color/black"
+            android:textSize="28sp"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

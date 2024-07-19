@@ -1,19 +1,19 @@
 package com.blockmaker.fdland.presentation.build.viewmodel
 
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.blockmaker.fdland.data.repository.BuildRepository
-import kotlinx.coroutines.launch
-import okhttp3.MediaType
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import java.io.File
+import com.blockmaker.fdland.data.repository.PhotoRepository
+import com.blockmaker.fdland.presentation.build.view.BuildLoadingView
+import org.json.JSONException
+import org.json.JSONObject
 
-class BuildGalleryViewModel(private val repository: BuildRepository) : ViewModel() {
+class BuildGalleryViewModel : ViewModel() {
 
     private val _selectedImages = MutableLiveData<List<Uri>>(emptyList())
     val selectedImages: LiveData<List<Uri>> get() = _selectedImages
@@ -21,47 +21,64 @@ class BuildGalleryViewModel(private val repository: BuildRepository) : ViewModel
     private val _navigateToNextPage = MutableLiveData<Boolean>()
     val navigateToNextPage: LiveData<Boolean> get() = _navigateToNextPage
 
-    private val _uploadStatus = MutableLiveData<Boolean>()
-    val uploadStatus: LiveData<Boolean> get() = _uploadStatus
+    private val _imageUrls = MutableLiveData<List<String>>()
+    val imageUrls: LiveData<List<String>> get() = _imageUrls
 
     private val maxImageCount = 5
+    private val buildRepository = BuildRepository()
 
-    fun selectImage(uri: Uri, index: Int) {
+    fun selectImage(uri: Uri, context: Context) {
         val currentImages = _selectedImages.value ?: emptyList()
         if (currentImages.size < maxImageCount) {
-            val updatedImages = currentImages.toMutableList().apply {
-                if (size > index) {
-                    set(index, uri)
-                } else {
-                    add(uri)
-                }
-            }
-            _selectedImages.value = updatedImages
-            if (updatedImages.size == maxImageCount) {
-                uploadImages(updatedImages)
-            }
-        }
-    }
+            _selectedImages.value = currentImages + uri
+            PhotoRepository.photoUris.add(uri)
 
-    private fun uploadImages(uris: List<Uri>) {
-        viewModelScope.launch {
-            try {
-                val parts = uris.mapIndexed { index, uri ->
-                    val file = File(uri.path ?: "")
-                    val requestFile = RequestBody.create("image/jpeg".toMediaType(), file)
-                    MultipartBody.Part.createFormData("image_$index", file.name, requestFile)
-                }
-                val response = repository.setBuildImg(
-                    parts[0], parts[1], parts[2], parts[3], parts[4]
-                )
-                _uploadStatus.value = response.isSuccessful
-            } catch (e: Exception) {
-                _uploadStatus.value = false
+            if (currentImages.size + 1 == maxImageCount) {
+                _navigateToNextPage.value = true
+                uploadImagesToServer(context)
             }
         }
     }
 
     fun resetNavigation() {
         _navigateToNextPage.value = false
+    }
+
+    private fun uploadImagesToServer(context: Context) {
+        buildRepository.uploadImages(
+            context,
+            PhotoRepository.photoUris,
+            onSuccess = { responseBody ->
+                try {
+                    parseResponse(context, responseBody)
+                } catch (e: JSONException) {
+                    Toast.makeText(context, "JSON Parse Error", Toast.LENGTH_SHORT).show()
+                }
+            },
+            onFailure = { error ->
+                Toast.makeText(context, error.message, Toast.LENGTH_SHORT).show()
+            }
+        )
+    }
+
+    private fun parseResponse(context: Context, responseBody: String) {
+        val jsonObject = JSONObject(responseBody)
+
+        val imageUrls = listOf(
+            jsonObject.optString("front_image"),
+            jsonObject.optString("back_image"),
+            jsonObject.optString("left_image"),
+            jsonObject.optString("right_image"),
+            jsonObject.optString("up_image")
+        )
+
+        _imageUrls.value = imageUrls
+
+        // 로딩 화면으로 이동
+        val intent = Intent(context, BuildLoadingView::class.java).apply {
+            putStringArrayListExtra("imageUrls", ArrayList(imageUrls))
+            putExtra("json_response", responseBody) // 전체 JSON 응답 전달
+        }
+        context.startActivity(intent)
     }
 }

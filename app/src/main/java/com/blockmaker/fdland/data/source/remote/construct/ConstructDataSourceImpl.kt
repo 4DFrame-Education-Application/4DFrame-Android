@@ -2,23 +2,17 @@ package com.blockmaker.fdland.data.source.remote.construct
 
 import com.blockmaker.fdland.data.api.ConstructRetrofitInterface
 import com.blockmaker.fdland.data.api.RetrofitClient
-import com.blockmaker.fdland.data.model.ConstructImgResponse
 import okhttp3.MultipartBody
+import okhttp3.ResponseBody
 import retrofit2.Response
 
 class ConstructDataSourceImpl : ConstructDataSource {
 
-    private val constructService =
-        RetrofitClient.getRetrofit()?.create(ConstructRetrofitInterface::class.java)
-    override suspend fun setConstImg(
-        image_url: MultipartBody.Part
-    ): Response<Void> {
-        return constructService!!.setConstImg(image_url)
+    private val constructService: ConstructRetrofitInterface by lazy {
+        RetrofitClient.getRetrofit().create(ConstructRetrofitInterface::class.java)
     }
 
-    override suspend fun getConstImg(
-        image_url: String
-    ): Response<ConstructImgResponse> {
-        return constructService!!.getConstImg(image_url)
+    override suspend fun setConstImg(image_url: MultipartBody.Part): Response<ResponseBody> {
+        return constructService.setConstImg(image_url)
     }
 }

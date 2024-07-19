@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:id="@+id/buttonLinearLayout1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="310dp"
-            android:layout_height="310dp"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
             android:layout_gravity="center"
             android:src="@drawable/type_zigzag"
             android:background="@drawable/ic_btn_org_white_stroke"
@@ -39,5 +39,18 @@
             android:layout_marginTop="10dp"
             android:textSize="50dp"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/explain_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/dongle_regular"
+            android:gravity="center"
+            android:text="블록이 최소 '4개'는 있어야 해!\n 홀수층은 홀수층끼리, 짝수층은 짝수층끼리 방향이 같아야 해!\n '계단'유형의 형태가 2개 이상 반복돼야 해!"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
