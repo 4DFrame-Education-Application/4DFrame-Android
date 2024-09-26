@@ -22,6 +22,6 @@ class SplashActivity : AppCompatActivity() {
 
             finish()
 
-        }, 3000) // 시간 0.5초 이후 실행
+        }, 3000)
     }
 }

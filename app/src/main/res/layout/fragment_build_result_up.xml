@@ -34,26 +34,27 @@
 
         <TextView
             android:id="@+id/result_text"
-            android:text="@{buildResultResponse.count}"
-            android:textColor="@color/black"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
-            android:padding="5dp"
-            android:textSize="20dp"
             android:fontFamily="@font/dongle_regular"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@{buildResultResponse.count}"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3"
             tools:text="총 4개 출력 되었습니다!." />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/result_text"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="MissingConstraints">
+            app:layout_constraintVertical_bias="0.0">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -122,9 +123,11 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
                         tools:listitem="@layout/item_result_build"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:nestedScrollingEnabled="false"
+                        app:layout_constraintHeight_default="wrap"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
