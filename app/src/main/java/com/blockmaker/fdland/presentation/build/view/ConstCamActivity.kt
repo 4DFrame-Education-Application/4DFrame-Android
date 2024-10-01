@@ -66,7 +66,7 @@ class ConstCamActivity : AppCompatActivity() {
         viewModel.setConstImgIsSuccess.observe(this, Observer { result ->
             result?.let {
                 if (!it.isSuccess) {
-                    Toast.makeText(this, "Image upload failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "이미지 업로드 실패", Toast.LENGTH_SHORT).show()
                 }
             }
         })
