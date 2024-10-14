@@ -57,7 +57,7 @@ class SignInActivity : AppCompatActivity(), SignInView {
     private fun saveToken(token: String) {
         val sharedPreferences = getSharedPreferences("auth_prefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.putString("jwt_token", token) // 토큰을 SharedPreferences에 저장
+        editor.putString("X-AUTH-TOKEN", token) // 토큰을 X-AUTH-TOKEN으로 저장
         editor.apply()
     }
 

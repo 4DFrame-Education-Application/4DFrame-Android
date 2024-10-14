@@ -75,7 +75,8 @@ class ConstCamViewModel(private val constRepository: ConstRepository) : ViewMode
         }, ContextCompat.getMainExecutor(context))
     }
 
-    fun takePhoto(context: Context) {
+    fun takePhoto(context: Context, token: String) {
+        Log.d(TAG, "사용할 토큰: $token") // 토큰 출력
         val imageCapture = imageCapture ?: return
 
         val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(System.currentTimeMillis())
@@ -102,30 +103,30 @@ class ConstCamViewModel(private val constRepository: ConstRepository) : ViewMode
                     val msg = "사진 찍기 성공: ${output.savedUri}"
                     Log.d(TAG, msg)
 
-                    Toast.makeText(context, "사진을 서버로 전송 중... 서버로 보내고 있으니 잠시만 기다려주세요! ", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "사진을 서버로 전송 중... 서버로 보내고 있으니 잠시만 기다려주세요!", Toast.LENGTH_LONG).show()
                     Log.d(TAG, "충분한 사진이 촬영되었습니다. 업로드를 시작합니다.")
-
 
                     // 서버로 이미지 전송
                     output.savedUri?.let { uri ->
-                        prepareAndSendImage(uri, context)
+                        prepareAndSendImage(uri, token, context)  // 토큰을 전달
                     }
                 }
             }
         )
     }
 
-    fun selectImage(uri: Uri, context: Context) {
+    fun selectImage(uri: Uri, token: String, context: Context) {
+        Log.d(TAG, "사용할 토큰: $token") // 토큰 출력
         _selectedImage.value = uri
         _navigateToNextPage.value = true
-        prepareAndSendImage(uri, context)
+        prepareAndSendImage(uri, token, context)  // 토큰을 전달
     }
 
     fun resetNavigation() {
         _navigateToNextPage.value = false
     }
 
-    private fun prepareAndSendImage(uri: Uri, context: Context) {
+    private fun prepareAndSendImage(uri: Uri, token: String, context: Context) {
         viewModelScope.launch {
             try {
                 val filePath = PathRepository.getRealPathFromURI(context, uri) ?: throw IllegalArgumentException("파일 경로를 가져오는 데 실패했습니다.")
@@ -133,7 +134,10 @@ class ConstCamViewModel(private val constRepository: ConstRepository) : ViewMode
                 val requestFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
                 val body = MultipartBody.Part.createFormData("composition_image", file.name, requestFile)
 
-                val response = constRepository.setConstImg(body)
+                Log.d(TAG, "서버에 이미지 업로드 중...") // 업로드 시작 로그
+                val response = constRepository.setConstImg(token, body)  // 토큰을 전달
+                Log.d(TAG, "서버 응답 코드: ${response.code()}") // 응답 코드 로그
+
                 if (response.isSuccessful) {
                     val responseBody = response.body()?.string()
                     Log.d(TAG, "Image upload successful: $responseBody")

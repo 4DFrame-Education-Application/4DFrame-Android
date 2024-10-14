@@ -6,7 +6,7 @@ import okhttp3.ResponseBody
 import retrofit2.Response
 
 class ConstRepository(private val constructDataSource: ConstructDataSource) {
-    suspend fun setConstImg(imgUrl: MultipartBody.Part): Response<ResponseBody> {
-        return constructDataSource.setConstImg(imgUrl)
+    suspend fun setConstImg(token: String, imgUrl: MultipartBody.Part): Response<ResponseBody> {
+        return constructDataSource.setConstImg(token, imgUrl)  // Pass the token to the data source
     }
 }

@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
@@ -49,7 +50,11 @@ class ConstCamActivity : AppCompatActivity() {
 
         viewModel.initialize()
 
-        cameraButton.setOnClickListener { viewModel.takePhoto(this) }
+        cameraButton.setOnClickListener {
+            val token = getToken() // SharedPreferences에서 토큰 가져오기
+            Log.d("ConstCamActivity", "사용할 토큰: $token") // 토큰 로그 출력
+            viewModel.takePhoto(this, token)
+        }
 
         // 이미지 업로드 결과 관찰
         observeImageUploadResult()
@@ -122,6 +127,13 @@ class ConstCamActivity : AppCompatActivity() {
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    private fun getToken(): String {
+        val sharedPreferences = getSharedPreferences("auth_prefs", MODE_PRIVATE)
+        val token = sharedPreferences.getString("X-AUTH-TOKEN", null) ?: ""
+        Log.d("ConstCamActivity", "가져온 토큰: $token") // 가져온 토큰 로그 출력
+        return token
     }
 
     companion object {

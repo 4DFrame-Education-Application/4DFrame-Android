@@ -12,7 +12,7 @@ class ConstructDataSourceImpl : ConstructDataSource {
         RetrofitClient.getRetrofit().create(ConstructRetrofitInterface::class.java)
     }
 
-    override suspend fun setConstImg(image_url: MultipartBody.Part): Response<ResponseBody> {
-        return constructService.setConstImg(image_url)
+    override suspend fun setConstImg(token: String, image_url: MultipartBody.Part): Response<ResponseBody> {
+        return constructService.setConstImg(token, image_url)  // Pass the token to the service
     }
 }

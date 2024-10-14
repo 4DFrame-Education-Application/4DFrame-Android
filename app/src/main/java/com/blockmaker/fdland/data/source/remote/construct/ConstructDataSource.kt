@@ -6,6 +6,7 @@ import retrofit2.Response
 
 interface ConstructDataSource {
     suspend fun setConstImg(
+        token: String,  // Add token parameter
         image_url: MultipartBody.Part
     ): Response<ResponseBody>
 }
