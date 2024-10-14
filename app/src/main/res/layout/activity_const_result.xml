@@ -19,7 +19,8 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
+            app:layout_constrainedHeight="true"
             tools:ignore="MissingConstraints">
 
             <androidx.appcompat.widget.Toolbar
@@ -71,7 +72,8 @@
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="300dp"
-            android:layout_height="425dp"
+            android:layout_height="wrap_content"
+            app:layout_constrainedHeight="true"
             android:importantForAccessibility="no"
             android:src="@{ConstructImgResponse.image_url}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -82,7 +84,8 @@
         <TextView
             android:id="@+id/result"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
+            app:layout_constrainedHeight="true"
             android:fontFamily="@font/dongle_regular"
             android:gravity="center"
             android:text="@string/result_const"

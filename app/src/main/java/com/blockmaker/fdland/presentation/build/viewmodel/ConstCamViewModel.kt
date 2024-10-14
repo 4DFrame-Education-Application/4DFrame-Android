@@ -102,8 +102,9 @@ class ConstCamViewModel(private val constRepository: ConstRepository) : ViewMode
                     val msg = "사진 찍기 성공: ${output.savedUri}"
                     Log.d(TAG, msg)
 
-                    Toast.makeText(context, "사진을 서버로 전송 중...", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "사진을 서버로 전송 중... 서버로 보내고 있으니 잠시만 기다려주세요! ", Toast.LENGTH_LONG).show()
                     Log.d(TAG, "충분한 사진이 촬영되었습니다. 업로드를 시작합니다.")
+
 
                     // 서버로 이미지 전송
                     output.savedUri?.let { uri ->

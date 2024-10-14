@@ -38,4 +38,10 @@ class BuildResultViewModel : ViewModel() {
     fun setJsonResponse(response: String) {
         _jsonResponse.value = response
     }
+
+    // 이미지 URL과 JSON 응답 데이터를 초기화하는 메서드
+    fun clearData() {
+        _imageUrls.value = emptyList()
+        _jsonResponse.value = ""
+    }
 }

@@ -40,4 +40,12 @@
     <string name="result_good">참 잘했어요!</string>
     <string name="result_text">총 %1$d개 출력 되었습니다!</string>
     <string name="toolbar_btn_join">회원가입</string>
+    <string name="login_email">이메일 입력</string>
+    <string name="login_pw">비밀번호 입력</string>
+    <string name="login_btn">로그인</string>
+    <string name="login_btn_kakao">카카오 로그인</string>
+    <string name="login_btn_signup">회원가입</string>
+    <string name="login_app_ill">앱 일러스트</string>
+    <string name="login_app_close">닫기</string>
+    <string name="login_fail_message">로그인을 실패했습니다</string>
 </resources>

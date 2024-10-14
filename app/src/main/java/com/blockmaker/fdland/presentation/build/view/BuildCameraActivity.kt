@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -46,6 +47,7 @@ class BuildCameraActivity : AppCompatActivity() {
         buttonPrev.setOnClickListener {
             val intent = Intent(this, BuildActivity::class.java)
             startActivity(intent)
+            finish()  // 현재 액티비티 종료
         }
 
         if (allPermissionsGranted()) {
@@ -89,11 +91,21 @@ class BuildCameraActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         viewModel.shutdown()
+        releaseCameraProvider() // 카메라 리소스 해제
+    }
+
+    private fun releaseCameraProvider() {
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
+        cameraProviderFuture.addListener({
+            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+            cameraProvider.unbindAll() // 카메라 리소스 해제
+        }, ContextCompat.getMainExecutor(this))
     }
 
     private fun moveToLoadingView() {
         val intent = Intent(this, BuildLoadingView::class.java)
         startActivity(intent)
+        finish() // 현재 액티비티 종료
     }
 
     companion object {
@@ -115,4 +127,3 @@ class BuildCameraActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 }
-

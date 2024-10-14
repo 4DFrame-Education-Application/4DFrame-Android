@@ -45,7 +45,7 @@ class ConstGalleryViewModel(private val repository: ConstRepository) : ViewModel
 
     // 이미지 업로드를 준비하고 서버로 전송
     private fun prepareAndSendImage(uri: Uri, context: Context) {
-        Toast.makeText(context, "사진을 서버로 전송 중...", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "사진을 서버로 전송 중... 서버로 보내고 있으니 잠시만 기다려주세요! ", Toast.LENGTH_LONG).show()
         viewModelScope.launch {
             try {
                 // PathRepository를 사용하여 파일 경로를 가져옴

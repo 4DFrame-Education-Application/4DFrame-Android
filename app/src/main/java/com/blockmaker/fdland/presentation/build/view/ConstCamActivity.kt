@@ -62,6 +62,24 @@ class ConstCamActivity : AppCompatActivity() {
         })
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (allPermissionsGranted()) {
+            viewModel.startCamera(this, previewView)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // 카메라 자원 해제
+        viewModel.shutdown()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.shutdown()
+    }
+
     private fun observeImageUploadResult() {
         viewModel.setConstImgIsSuccess.observe(this, Observer { result ->
             result?.let {
@@ -92,16 +110,6 @@ class ConstCamActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        viewModel.shutdown()
-    }
-
-    companion object {
-        private const val REQUEST_CODE_PERMISSIONS = 10
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-    }
-
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String>, grantResults: IntArray
     ) {
@@ -114,5 +122,10 @@ class ConstCamActivity : AppCompatActivity() {
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    companion object {
+        private const val REQUEST_CODE_PERMISSIONS = 10
+        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
     }
 }

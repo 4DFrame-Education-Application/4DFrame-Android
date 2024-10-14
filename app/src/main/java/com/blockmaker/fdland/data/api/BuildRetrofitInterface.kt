@@ -41,7 +41,7 @@ interface BuildRetrofitInterface {
 
     /** 카메라 페이지: 이미지 보내기 **/
     @Multipart
-    @POST("/results/upload")
+    @POST("api/block/upload")
     fun uploadMultipleImages(
         @Part frontImage: MultipartBody.Part,
         @Part backImage: MultipartBody.Part,

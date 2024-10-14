@@ -71,7 +71,16 @@ class BackFragment : Fragment() {
         try {
             val gson = Gson()
             val resultResponse = gson.fromJson(jsonResults, BuildResultResponse::class.java)
-            val buildResults = resultResponse.results
+            val buildResults = resultResponse.results.map { result ->
+                result.copy(rate = when (result.rate) {
+                    "perfect" -> "♥♥♥♥♥"
+                    "great" -> "♥♥♥♥"
+                    "good" -> "♥♥♥"
+                    "bad" -> "♥♥"
+                    "miss" -> "♥"
+                    else -> "♥"
+                })
+            }
 
             // RecyclerView 설정
             recyclerView.layoutManager = LinearLayoutManager(context)

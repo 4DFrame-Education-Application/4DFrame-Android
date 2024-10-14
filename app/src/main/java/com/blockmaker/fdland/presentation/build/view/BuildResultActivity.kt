@@ -52,21 +52,17 @@ class BuildResultActivity : AppCompatActivity() {
             })
         })
 
+        // toolbar_btn_again 클릭 시 데이터 초기화 및 이동 처리
         buttonPrev.setOnClickListener {
-            viewModel.onPrevButtonClicked()
+            viewModel.clearData()  // ViewModel의 데이터를 초기화
+            val intent = Intent(this, BuildActivity::class.java)
+            startActivity(intent)
         }
 
+        // toolbar_btn_main 클릭 시 메인으로 이동
         buttonMain.setOnClickListener {
             viewModel.onMainButtonClicked()
         }
-
-        viewModel.navigateToBuildActivity.observe(this, Observer { navigate ->
-            if (navigate) {
-                val intent = Intent(this, BuildActivity::class.java)
-                startActivity(intent)
-                viewModel.onNavigationHandled()
-            }
-        })
 
         viewModel.navigateToMainActivity.observe(this, Observer { navigate ->
             if (navigate) {

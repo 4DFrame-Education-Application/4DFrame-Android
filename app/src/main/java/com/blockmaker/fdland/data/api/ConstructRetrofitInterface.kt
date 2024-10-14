@@ -12,20 +12,14 @@ import retrofit2.http.Query
 
 interface ConstructRetrofitInterface {
 
-//    @Multipart
-//    @POST("/composition/composition-upload")
-//    suspend fun setConstImg(
-//        @Part image_url: MultipartBody.Part
-//    ): Response<Void>
-
     @Multipart
-    @POST("/composition/composition-upload")
+    @POST("/api/composition/upload")
     suspend fun setConstImg(
         @Part image_url: MultipartBody.Part
     ): Response<ResponseBody>// Void -> RespnseBody (Json 반환을 위해)
 
 
-    @GET("/composition/composition-upload")
+    @GET("/api/composition/upload")
     suspend fun getConstImg(
         @Query("image_url") image_url: String
     ): Response<ConstructImgResponse>
