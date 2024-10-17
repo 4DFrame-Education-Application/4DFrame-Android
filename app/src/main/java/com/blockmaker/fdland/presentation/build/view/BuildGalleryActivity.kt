@@ -17,12 +17,16 @@ class BuildGalleryActivity : AppCompatActivity() {
     private lateinit var binding: FragmentBuildGallBinding
 
     private var currentIndex: Int? = null
+    private lateinit var token: String  // 토큰 변수 추가
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentBuildGallBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // SharedPreferences에서 토큰 가져오기
+        token = getToken()
 
         binding.toolbarPrevious.setOnClickListener {
             val intent = Intent(this, BuildActivity::class.java)
@@ -70,11 +74,16 @@ class BuildGalleryActivity : AppCompatActivity() {
     }
 
     private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-        uri?.let { currentIndex?.let { _ -> buildGalleryViewModel.selectImage(it,this) } }
+        uri?.let { currentIndex?.let { _ -> buildGalleryViewModel.selectImage(it, this, token) } }  // 토큰 전달
     }
 
     private fun openImageChooser() {
         pickImageLauncher.launch("image/*")
+    }
+
+    private fun getToken(): String {
+        val sharedPreferences = getSharedPreferences("auth_prefs", MODE_PRIVATE)
+        return sharedPreferences.getString("X-AUTH-TOKEN", "") ?: ""
     }
 
     private fun moveToNextPage() {

@@ -7,6 +7,7 @@ import com.blockmaker.fdland.databinding.ActivityMainBinding
 import com.blockmaker.fdland.presentation.build.view.BuildActivity
 import com.blockmaker.fdland.presentation.build.view.ConstructActivity
 import com.blockmaker.fdland.presentation.home.HomeActivity
+import com.blockmaker.fdland.presentation.mypage.view.MyPageActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +33,11 @@ class MainActivity : AppCompatActivity() {
         // Toolbar previous button 클릭 이벤트 처리
         binding.toolbarPrevious.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.toolbarMyPage.setOnClickListener {
+            val intent = Intent(this, MyPageActivity::class.java)
             startActivity(intent)
         }
     }

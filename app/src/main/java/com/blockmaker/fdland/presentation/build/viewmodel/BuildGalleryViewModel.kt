@@ -27,7 +27,7 @@ class BuildGalleryViewModel : ViewModel() {
     private val maxImageCount = 5
     private val buildRepository = BuildRepository()
 
-    fun selectImage(uri: Uri, context: Context) {
+    fun selectImage(uri: Uri, context: Context, token: String) {
         val currentImages = _selectedImages.value ?: emptyList()
         if (currentImages.size < maxImageCount) {
             _selectedImages.value = currentImages + uri
@@ -35,7 +35,7 @@ class BuildGalleryViewModel : ViewModel() {
 
             if (currentImages.size + 1 == maxImageCount) {
                 _navigateToNextPage.value = true
-                uploadImagesToServer(context)
+                uploadImagesToServer(context, token)
             }
         }
     }
@@ -44,9 +44,10 @@ class BuildGalleryViewModel : ViewModel() {
         _navigateToNextPage.value = false
     }
 
-    private fun uploadImagesToServer(context: Context) {
+    private fun uploadImagesToServer(context: Context, token: String) {
         buildRepository.uploadImages(
             context,
+            token, // 토큰을 함께 전송
             PhotoRepository.photoUris,
             onSuccess = { responseBody ->
                 try {

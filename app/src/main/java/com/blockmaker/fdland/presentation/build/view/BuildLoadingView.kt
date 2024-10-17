@@ -54,7 +54,7 @@ class BuildLoadingView : AppCompatActivity() {
                     binding.homeAni.visibility = View.GONE
                     binding.progressBar.visibility = View.GONE
                 }
-            }, 5000) // 5초 후에 다시 확인
+            }, 1000) // 5초 후에 다시 확인
         }
     }
 

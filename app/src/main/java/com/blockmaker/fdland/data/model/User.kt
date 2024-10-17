@@ -14,3 +14,20 @@ data class AuthResponse(
     @SerializedName("detailMessage") val detailMessage: String,
     @SerializedName("token") val token: String  // JWT 토큰 필드
 )
+
+data class SendEmailRequest(
+    @SerializedName("email") val email: String
+)
+
+data class SendEmailResponse(
+    @SerializedName("Confirmation : ")
+    val confirmation: String?
+)
+
+data class SendConfirmationRequest(
+    @SerializedName("ConfirmationCode") val ConfirmationCode: String?
+)
+
+data class SendVerifiedResponse(
+    @SerializedName("Verified") val Verified: Boolean
+)

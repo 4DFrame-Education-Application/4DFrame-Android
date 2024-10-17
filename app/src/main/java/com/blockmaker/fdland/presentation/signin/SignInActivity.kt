@@ -11,6 +11,7 @@ import com.blockmaker.fdland.data.api.AuthService
 import com.blockmaker.fdland.data.api.SignInView
 import com.blockmaker.fdland.databinding.ActivitySignInBinding
 import com.blockmaker.fdland.presentation.main.MainActivity
+import com.blockmaker.fdland.presentation.signup.view.EmailVerificationActivity
 
 class SignInActivity : AppCompatActivity(), SignInView {
 
@@ -30,6 +31,11 @@ class SignInActivity : AppCompatActivity(), SignInView {
                 authService.signIn(email, password)  // Query 파라미터로 전달
             }
         }
+
+        binding.btnSignUp.setOnClickListener {
+            val intent = Intent(this, EmailVerificationActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun validateInput(email: String, password: String): Boolean {
@@ -48,7 +54,7 @@ class SignInActivity : AppCompatActivity(), SignInView {
 
     override fun onSignInSuccess(token: String) {
         Log.d("SignInActivity", "로그인 성공: 사용자 token = $token")
-        saveToken(token) // JWT 토큰을 저장합니다.
+        saveToken(token)
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

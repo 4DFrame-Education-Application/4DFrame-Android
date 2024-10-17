@@ -52,23 +52,32 @@ class BuildResultActivity : AppCompatActivity() {
             })
         })
 
-        // toolbar_btn_again 클릭 시 데이터 초기화 및 이동 처리
+        // toolbar_btn_again 클릭 시 데이터 초기화 및 이전 화면으로 이동
         buttonPrev.setOnClickListener {
             viewModel.clearData()  // ViewModel의 데이터를 초기화
-            val intent = Intent(this, BuildActivity::class.java)
-            startActivity(intent)
+            viewModel.onPrevButtonClicked()
         }
 
-        // toolbar_btn_main 클릭 시 메인으로 이동
+        // toolbar_btn_main 클릭 시 메인 화면으로 이동
         buttonMain.setOnClickListener {
             viewModel.onMainButtonClicked()
         }
 
+        // 이전 화면으로 이동
+        viewModel.navigateToBuildActivity.observe(this, Observer { navigate ->
+            if (navigate) {
+                val intent = Intent(this, BuildActivity::class.java)
+                startActivity(intent)
+                viewModel.onNavigationHandled()  // 내비게이션 처리 완료
+            }
+        })
+
+        // 메인 화면으로 이동
         viewModel.navigateToMainActivity.observe(this, Observer { navigate ->
             if (navigate) {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-                viewModel.onNavigationHandled()
+                viewModel.onNavigationHandled()  // 내비게이션 처리 완료
             }
         })
     }

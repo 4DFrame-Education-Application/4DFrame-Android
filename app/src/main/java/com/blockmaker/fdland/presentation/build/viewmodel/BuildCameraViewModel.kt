@@ -69,7 +69,7 @@ class BuildCameraViewModel : ViewModel() {
     }
 
     // 사진 촬영 함수
-    fun takePhoto(context: Context) {
+    fun takePhoto(context: Context, token: String) {  // 토큰 추가
         if (PhotoRepository.photoUris.size >= MAX_PHOTOS) {
             Toast.makeText(context, "이미 최대 사진 개수를 촬영했습니다.", Toast.LENGTH_SHORT).show()
             return
@@ -102,7 +102,7 @@ class BuildCameraViewModel : ViewModel() {
                         Toast.makeText(context, "사진을 서버로 전송 중...", Toast.LENGTH_SHORT).show()
                         Log.d(TAG, "충분한 사진이 촬영되었습니다. 업로드를 시작합니다.")
                         _navigateToNextPage.value = true
-                        sendPhotosToServer(context, PhotoRepository.photoUris)
+                        sendPhotosToServer(context, PhotoRepository.photoUris, token)  // 토큰 전달
                     }
                 }
             }
@@ -110,9 +110,10 @@ class BuildCameraViewModel : ViewModel() {
     }
 
     // 서버로 사진 전송 함수
-    private fun sendPhotosToServer(context: Context, photoUris: List<Uri>) {
+    private fun sendPhotosToServer(context: Context, photoUris: List<Uri>, token: String) {  // 토큰 추가
         buildRepository.uploadImages(
             context,
+            token,  // 토큰을 함께 전송
             photoUris,
             onSuccess = { responseBody ->
                 val jsonObject = JSONObject(responseBody)

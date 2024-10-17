@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="time"
-            type="String" />
+            name="item"
+            type="com.blockmaker.fdland.data.model.ConstructHistory" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,13 +14,14 @@
         android:layout_margin="8dp"
         android:background="@drawable/ic_btn_org_stroke">
 
+        <!-- 생성 날짜를 표시하는 TextView -->
         <TextView
             android:id="@+id/tvItemTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:fontFamily="@font/dongle_bold"
-            android:text="@{time}"
+            android:text="@{item.createDate}"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"

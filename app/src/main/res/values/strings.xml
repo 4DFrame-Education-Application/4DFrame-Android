@@ -48,4 +48,5 @@
     <string name="login_app_ill">앱 일러스트</string>
     <string name="login_app_close">닫기</string>
     <string name="login_fail_message">로그인을 실패했습니다</string>
+    <string name="btn_main_mypage">마이페이지</string>
 </resources>

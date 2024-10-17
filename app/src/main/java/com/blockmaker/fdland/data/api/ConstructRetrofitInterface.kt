@@ -25,4 +25,5 @@ interface ConstructRetrofitInterface {
     suspend fun getConstImg(
         @Query("image_url") image_url: String
     ): Response<ConstructImgResponse>
+
 }

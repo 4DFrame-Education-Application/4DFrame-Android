@@ -4,96 +4,169 @@
     <!-- 이미지 저장 폴더 읽기/쓰기 권한 -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
-    <!--카메라 권한 -->
-    <uses-permission android:name="android.permission.CAMERA"
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" /> <!-- 카메라 권한 -->
+    <uses-permission
+        android:name="android.permission.CAMERA"
         tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
     <uses-permission android:name="android.permission.INTERNET" />
-
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_app_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         tools:targetApi="34">
-        <activity android:name=".presentation.practice.view.PracticeTypeExplainActivity"
+        <activity
+            android:name=".presentation.signup.view.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.practice.view.PracticeTypeExplainActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.practice.view.PracticeFifthLoadingActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.practice.view.PracticeFifthLoadingActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.practice.view.PracticeFourthLoadingActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.practice.view.PracticeFourthLoadingActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.practice.view.PracticeThirdLoadingActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.practice.view.PracticeThirdLoadingActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.practice.view.PracticeSecondLoadingActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.practice.view.PracticeSecondLoadingActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.practice.view.PracticeFirstLoadingActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.practice.view.PracticeFirstLoadingActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.practice.view.PracticePickerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.practice.view.PracticePickerActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.practice.view.PracticeFirstResultActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.practice.view.PracticeFirstResultActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.practice.view.PracticeSecondResultActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.practice.view.PracticeSecondResultActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.practice.view.PracticeThirdResultActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.practice.view.PracticeThirdResultActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.practice.view.PracticeFourthResultActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.practice.view.PracticeFourthResultActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.practice.view.PracticeFifthResultActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.practice.view.PracticeFifthResultActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.build.view.ConstGalleryActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.build.view.ConstGalleryActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.build.view.ConstructActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.build.view.ConstructActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.build.view.ConstLoadingView"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.build.view.ConstLoadingView"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.build.view.ConstCamActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.build.view.ConstCamActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.build.view.ConstResultActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.build.view.ConstResultActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.build.view.BuildLoadingView"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.build.view.BuildLoadingView"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.build.view.BuildResultActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.build.view.BuildResultActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.build.view.BuildGalleryActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.build.view.BuildGalleryActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.build.view.BuildCameraActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.build.view.BuildCameraActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.build.view.BuildActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.build.view.BuildActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.home.HomeActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.home.HomeActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.main.MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.main.MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".presentation.signin.SignInActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.signin.SignInActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.mypage.view.MyPageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.build.view.ConstHistoryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.mypage.view.MyPageConfirmActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.ConstListActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.MyPageBuildListResultActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.MyPageResulttoBuildActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.MyPageResulttoConstActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.MyPageResultMainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.BuildListActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.signup.view.EmailVerificationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".presentation.signup.view.SignUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            tools:ignore="DuplicateActivity" />
         <activity
             android:name=".presentation.splash.SplashActivity"
             android:exported="true"
@@ -101,9 +174,10 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
+
 </manifest>

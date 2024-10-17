@@ -10,7 +10,6 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -32,10 +31,14 @@ class BuildCameraActivity : AppCompatActivity() {
         R.drawable.explain_build_up
     )
     private var imageIndex = 0
+    private lateinit var token: String  // 토큰 변수
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_build_cam)
+
+        // SharedPreferences에서 토큰 가져오기
+        token = getToken()
 
         PhotoRepository.clear()  // PhotoRepository의 photoUris 리스트 초기화
 
@@ -47,7 +50,6 @@ class BuildCameraActivity : AppCompatActivity() {
         buttonPrev.setOnClickListener {
             val intent = Intent(this, BuildActivity::class.java)
             startActivity(intent)
-            finish()  // 현재 액티비티 종료
         }
 
         if (allPermissionsGranted()) {
@@ -59,7 +61,7 @@ class BuildCameraActivity : AppCompatActivity() {
         viewModel.initialize()
 
         cameraButton.setOnClickListener {
-            viewModel.takePhoto(this)
+            viewModel.takePhoto(this, token)  // 토큰을 함께 전달
             updateExplainImageView()
         }
 
@@ -74,6 +76,11 @@ class BuildCameraActivity : AppCompatActivity() {
     private fun updateExplainImageView() {
         imageIndex = (imageIndex + 1) % imageResources.size
         explainImageView.setImageResource(imageResources[imageIndex])
+    }
+
+    private fun getToken(): String {
+        val sharedPreferences = getSharedPreferences("auth_prefs", MODE_PRIVATE)
+        return sharedPreferences.getString("X-AUTH-TOKEN", "") ?: ""
     }
 
     private fun allPermissionsGranted(): Boolean {
@@ -91,21 +98,11 @@ class BuildCameraActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         viewModel.shutdown()
-        releaseCameraProvider() // 카메라 리소스 해제
-    }
-
-    private fun releaseCameraProvider() {
-        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-        cameraProviderFuture.addListener({
-            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-            cameraProvider.unbindAll() // 카메라 리소스 해제
-        }, ContextCompat.getMainExecutor(this))
     }
 
     private fun moveToLoadingView() {
         val intent = Intent(this, BuildLoadingView::class.java)
         startActivity(intent)
-        finish() // 현재 액티비티 종료
     }
 
     companion object {
