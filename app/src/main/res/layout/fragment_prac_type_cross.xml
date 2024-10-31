@@ -49,7 +49,7 @@
             android:gravity="center"
             android:text="블록이 최소 '3~4개'는 있어야 해!\n 나란히 있는 2개의 블록 위에 \n 교차된 방향의 1~2개의 블록이 쌓여있어!"
             android:textColor="@color/black"
-            android:textSize="28sp"
+            android:textSize="24sp"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     </LinearLayout>

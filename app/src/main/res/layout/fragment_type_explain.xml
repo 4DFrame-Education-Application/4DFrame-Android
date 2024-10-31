@@ -31,7 +31,7 @@
                 android:gravity="center"
                 android:text="@string/toolbar_btn_pre"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView

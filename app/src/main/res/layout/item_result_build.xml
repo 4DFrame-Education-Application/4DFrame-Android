@@ -39,7 +39,7 @@
                 android:gravity="center"
                 android:text="@{buildResult.name}"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +54,7 @@
                 android:gravity="center"
                 android:text="@{buildResult.accuracy}"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/item_accuracy"
                 app:layout_constraintStart_toEndOf="@id/item_type"
@@ -68,7 +68,7 @@
                 android:gravity="center"
                 android:text="@{buildResult.rate}"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

@@ -8,7 +8,7 @@ import retrofit2.Call
 class ResultDataSourceImpl {
 
     private val resultService =
-        RetrofitClient.getRetrofit()?.create(ResultRetrofitInterface::class.java)
+        RetrofitClient.getRetrofit().create(ResultRetrofitInterface::class.java)
 
     suspend fun getResult(
         name: String?,
@@ -16,6 +16,6 @@ class ResultDataSourceImpl {
         rate: String?,
         imageUrl: String?
     ): Call<ResultResponse> {
-        return resultService!!.getResult(name, accuracy, rate, imageUrl)
+        return resultService.getResult(name, accuracy, rate, imageUrl)
     }
 }

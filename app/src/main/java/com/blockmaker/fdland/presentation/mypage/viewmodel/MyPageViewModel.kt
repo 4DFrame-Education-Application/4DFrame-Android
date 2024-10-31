@@ -1,9 +1,9 @@
 package com.blockmaker.fdland.presentation.mypage.viewmodel
 
-import MyPageRetrofitInterface
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.blockmaker.fdland.data.api.MyPageRetrofitInterface
 import com.blockmaker.fdland.data.api.RetrofitClient
 import com.blockmaker.fdland.data.model.MyPageResponse
 import retrofit2.Call

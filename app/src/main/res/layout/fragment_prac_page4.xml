@@ -33,7 +33,7 @@
                 android:fontFamily="@font/dongle_bold"
                 android:text="@string/toolbar_btn_cam"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <Button
@@ -45,7 +45,7 @@
                 android:fontFamily="@font/dongle_bold"
                 android:text="@string/toolbar_btn_home"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -113,7 +113,7 @@
                     android:gravity="center"
                     android:text="@string/item_type"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -128,7 +128,7 @@
                     android:gravity="center"
                     android:text="@string/item_acc"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/item_accuracy"
                     app:layout_constraintStart_toEndOf="@id/item_type"
@@ -142,7 +142,7 @@
                     android:gravity="center"
                     android:text="@string/item_heart"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -165,7 +165,7 @@
                     android:gravity="center"
                     android:text="기댐"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -180,7 +180,7 @@
                     android:gravity="center"
                     android:text="96.44%"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/item_accuracy1"
                     app:layout_constraintStart_toEndOf="@id/item_type1"
@@ -194,7 +194,7 @@
                     android:gravity="center"
                     android:text="♥♥♥♥♥"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -217,7 +217,7 @@
                     android:gravity="center"
                     android:text="지그재그"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -232,7 +232,7 @@
                     android:gravity="center"
                     android:text="96%"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/item_accuracy2"
                     app:layout_constraintStart_toEndOf="@id/item_type2"
@@ -246,7 +246,7 @@
                     android:gravity="center"
                     android:text="♥♥♥♥♥"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -270,7 +270,7 @@
                     android:gravity="center"
                     android:text="틀어"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -285,7 +285,7 @@
                     android:gravity="center"
                     android:text="96%"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/item_accuracy3"
                     app:layout_constraintStart_toEndOf="@id/item_type3"
@@ -299,7 +299,7 @@
                     android:gravity="center"
                     android:text="♥♥♥♥♥"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -322,7 +322,7 @@
                     android:gravity="center"
                     android:text="교차"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -337,7 +337,7 @@
                     android:gravity="center"
                     android:text="95%"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/item_accuracy4"
                     app:layout_constraintStart_toEndOf="@id/item_type4"
@@ -351,7 +351,7 @@
                     android:gravity="center"
                     android:text="♥♥♥♥♥"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -373,7 +373,7 @@
                     android:gravity="center"
                     android:text="기본"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -388,7 +388,7 @@
                     android:gravity="center"
                     android:text="95%"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/item_accuracy5"
                     app:layout_constraintStart_toEndOf="@id/item_type5"
@@ -402,7 +402,7 @@
                     android:gravity="center"
                     android:text="♥♥♥♥♥"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -425,7 +425,7 @@
                     android:gravity="center"
                     android:text="비스듬"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -440,7 +440,7 @@
                     android:gravity="center"
                     android:text="95%"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/item_accuracy6"
                     app:layout_constraintStart_toEndOf="@id/item_type6"
@@ -454,7 +454,7 @@
                     android:gravity="center"
                     android:text="♥♥♥♥♥"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -477,7 +477,7 @@
                     android:gravity="center"
                     android:text="계단"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -492,7 +492,7 @@
                     android:gravity="center"
                     android:text="94%"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/item_accuracy7"
                     app:layout_constraintStart_toEndOf="@id/item_type7"
@@ -506,7 +506,7 @@
                     android:gravity="center"
                     android:text="♥♥♥♥♥"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -528,7 +528,7 @@
                     android:gravity="center"
                     android:text="모아"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -543,7 +543,7 @@
                     android:gravity="center"
                     android:text="50%"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/item_accuracy8"
                     app:layout_constraintStart_toEndOf="@id/item_type8"
@@ -557,7 +557,7 @@
                     android:gravity="center"
                     android:text="♥♥"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

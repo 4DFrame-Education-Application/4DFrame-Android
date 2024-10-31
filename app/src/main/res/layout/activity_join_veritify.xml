@@ -36,7 +36,7 @@
                     android:gravity="center"
                     android:text="@string/toolbar_btn_pre"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -48,7 +48,7 @@
                     android:padding="10dp"
                     android:text="@string/toolbar_btn_join"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -73,8 +73,8 @@
             android:lineSpacingExtra="4dp"
             app:layout_constraintTop_toBottomOf="@id/appBarLayout"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="24dp"
-            android:layout_marginLeft="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
             android:fontFamily="@font/dongle_bold"/>
 
         <androidx.constraintlayout.widget.Guideline
@@ -89,7 +89,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="20dp"
             android:hint="이메일 입력 (예시: 4dland.naver.com)"
             android:textColorHint="@color/gray"
             android:textSize="20sp"
@@ -110,7 +110,7 @@
             android:padding="5dp"
             android:text="인증번호 전송"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/etEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guidelineEnd"
@@ -120,7 +120,7 @@
             android:id="@+id/etVerificationCode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="20dp"
             android:fontFamily="@font/dongle_bold"
             android:hint="인증번호"
             android:textColorHint="@color/gray"
@@ -142,7 +142,7 @@
             android:padding="5dp"
             android:text="인증 확인"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/etVerificationCode"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guidelineEnd"

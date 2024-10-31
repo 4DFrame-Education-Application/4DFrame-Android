@@ -18,11 +18,15 @@ class ConstListActivity : AppCompatActivity() {
         buttonAgain.setOnClickListener {
             val intent = Intent(this, MyPageResulttoConstActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         buttonMain.setOnClickListener {
             val intent = Intent(this, MyPageResultMainActivity::class.java)
             startActivity(intent)
+            finish()
         }
+
+
     }
 }

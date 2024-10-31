@@ -49,7 +49,7 @@
             android:gravity="center"
             android:text="블록이 최소 '4개'는 있어야 해!\n 홀수층은 홀수층끼리, 짝수층은 짝수층끼리 방향이 같아야 해!\n '계단'유형의 형태가 2개 이상 반복돼야 해!"
             android:textColor="@color/black"
-            android:textSize="28sp"
+            android:textSize="24sp"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     </LinearLayout>

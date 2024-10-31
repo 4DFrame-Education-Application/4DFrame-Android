@@ -31,7 +31,7 @@
                 android:gravity="center"
                 android:text="@string/toolbar_btn_cam"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <Button
@@ -44,7 +44,7 @@
                 android:gravity="center"
                 android:text="@string/toolbar_btn_home"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView

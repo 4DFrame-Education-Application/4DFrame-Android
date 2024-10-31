@@ -28,18 +28,26 @@ class BuildRepository {
         onSuccess: (String) -> Unit,
         onFailure: (Throwable) -> Unit
     ) {
-        val fileParts = photoUris.mapIndexed { index, uri ->
-            val file = File(getRealPathFromURI(context, uri))
-            val requestBody = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
-            val partName = when (index) {
-                0 -> "frontImage"
-                1 -> "backImage"
-                2 -> "leftImage"
-                3 -> "rightImage"
-                4 -> "upImage"
-                else -> "file$index"
+        val fileParts = mutableListOf<MultipartBody.Part>()
+
+        photoUris.forEachIndexed { index, uri ->
+            val filePath = getRealPathFromURI(context, uri)
+            if (filePath != null) {
+                val file = File(filePath)
+                val requestBody = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+                val partName = when (index) {
+                    0 -> "frontImage"
+                    1 -> "backImage"
+                    2 -> "leftImage"
+                    3 -> "rightImage"
+                    4 -> "upImage"
+                    else -> "file$index"
+                }
+                fileParts.add(MultipartBody.Part.createFormData(partName, file.name, requestBody))
+            } else {
+                onFailure(Throwable("Invalid file path for URI: $uri"))
+                return
             }
-            MultipartBody.Part.createFormData(partName, file.name, requestBody)
         }
 
         // 5장 이상의 이미지를 업로드할 수 있는지 확인

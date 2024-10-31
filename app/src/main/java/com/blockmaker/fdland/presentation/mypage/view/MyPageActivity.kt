@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.blockmaker.fdland.databinding.ActivityMyPageBinding
 import com.blockmaker.fdland.presentation.MyPageResultMainActivity
+import com.blockmaker.fdland.presentation.main.MainActivity
 import com.blockmaker.fdland.presentation.mypage.viewmodel.MyPageViewModel
 import com.blockmaker.fdland.presentation.signin.SignInActivity
 
@@ -38,17 +39,21 @@ class MyPageActivity : AppCompatActivity() {
 
         // X 버튼 클릭 시 이전 페이지로 이동
         binding.btnClose.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java) // '내 작품 확인' 버튼을 누르면 이동할 페이지 설정
+            startActivity(intent)
             finish() // 현재 페이지를 닫고 이전 페이지로 돌아감
         }
 
         binding.btnCheckLoginInfo.setOnClickListener {
             val intent = Intent(this, MyPageConfirmActivity::class.java) // '내 작품 확인' 버튼을 누르면 이동할 페이지 설정
             startActivity(intent)
+            finish()
         }
 
         binding.btnCheckMyWork.setOnClickListener {
             val intent = Intent(this, MyPageResultMainActivity::class.java) // '내 작품 확인' 버튼을 누르면 이동할 페이지 설정
             startActivity(intent)
+            finish()
         }
 
         binding.btnMoreAbout4DFrame.setOnClickListener {

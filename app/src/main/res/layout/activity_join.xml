@@ -1,187 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <data>
+        <variable
+            name="confirmViewModel"
+            type="com.blockmaker.fdland.presentation.mypage.viewmodel.MyPageConfirmViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            app:contentInsetStart="0dp"
-            app:layout_scrollFlags="scroll|enterAlways">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <Button
-                android:id="@+id/toolbar_previous"
-                android:layout_width="wrap_content"
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:background="@drawable/ic_btn_invisible"
-                android:fontFamily="@font/dongle_bold"
-                android:gravity="center"
-                android:text="@string/toolbar_btn_pre"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:background="@color/white"
+                app:contentInsetStart="0dp"
+                app:layout_scrollFlags="scroll|enterAlways">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/toolbar_previous"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="@drawable/ic_btn_invisible"
+                    android:fontFamily="@font/dongle_bold"
+                    android:gravity="center"
+                    android:text="@string/toolbar_btn_pre"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:fontFamily="@font/dongle_bold"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:layout_marginRight="15dp"
+                    android:text="회원가입"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="78dp"
+                    android:layout_height="23dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/logo3" />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- ScrollView로 콘텐츠 감싸기 -->
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:fontFamily="@font/dongle_bold"
-                android:gravity="center"
-                android:padding="10dp"
-                android:layout_marginRight="15dp"
-                android:text="회원가입"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <ImageView
-                android:layout_width="78dp"
-                android:layout_height="23dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/logo3" />
 
-        </androidx.appcompat.widget.Toolbar>
 
-    </com.google.android.material.appbar.AppBarLayout>
+                <TextView
+                    android:id="@+id/tvInstruction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="회원가입을 위해\n정보를 입력해주세요."
+                    android:textSize="32sp"
+                    android:textColor="@color/black"
+                    android:gravity="start"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/dongle_bold" />
 
-    <TextView
-        android:id="@+id/tvInstruction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="회원가입을 위해\n필수 정보를 입력해주세요."
-        android:textSize="32sp"
-        android:textColor="@color/black"
-        android:gravity="start"
-        android:lineSpacingExtra="4dp"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="24dp"
-        android:layout_marginLeft="24dp"
-        android:fontFamily="@font/dongle_bold" />
+                <!-- 이름 입력 -->
+                <EditText
+                    android:id="@+id/etUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="이름"
+                    android:textColorHint="@color/gray"
+                    android:textSize="18sp"
+                    android:padding="12dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/dongle_regular" />
 
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:hint="이름"
-        android:textSize="18sp"
-        android:inputType="textPersonName"
-        android:padding="12dp"
-        android:fontFamily="@font/dongle_regular"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvInstruction" />
+                <!-- 비밀번호 입력 -->
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="비밀번호 (8~20자 이내 입력)"
+                    android:textColorHint="@color/gray"
+                    android:textSize="18sp"
+                    android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/dongle_regular" />
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:hint="이메일 (8~20자 이내 입력)"
-        android:textSize="18sp"
-        android:inputType="textEmailAddress"
-        android:padding="12dp"
-        android:fontFamily="@font/dongle_regular"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etName" />
+                <TextView
+                    android:id="@+id/tvPasswordError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="비밀번호를 입력해주세요."
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
 
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:hint="비밀번호"
-        android:textSize="18sp"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        android:fontFamily="@font/dongle_regular"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etEmail" />
+                <!-- 비밀번호 확인 -->
+                <EditText
+                    android:id="@+id/etPasswordConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="비밀번호 확인"
+                    android:textColorHint="@color/gray"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:fontFamily="@font/dongle_regular" />
 
-    <EditText
-        android:id="@+id/etPasswordConfirm"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:hint="비밀번호 확인"
-        android:textSize="18sp"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        android:fontFamily="@font/dongle_regular"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etPassword" />
+                <!-- 생년월일 입력 -->
+                <EditText
+                    android:id="@+id/etBirthDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="생년월일 (8자의 숫자만 입력 ex: 20240924)"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:inputType="date"
+                    android:padding="12dp"
+                    android:fontFamily="@font/dongle_regular" />
 
-    <EditText
-        android:id="@+id/etBirthDate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:hint="생년월일 (8자의 숫자만 입력 ex: 20240924)"
-        android:textSize="18sp"
-        android:inputType="date"
-        android:padding="12dp"
-        android:fontFamily="@font/dongle_regular"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etPasswordConfirm" />
+                <!-- 전화번호 입력 -->
+                <EditText
+                    android:id="@+id/etPhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="전화번호"
+                    android:textColorHint="@color/gray"
+                    android:textSize="18sp"
+                    android:inputType="phone"
+                    android:padding="12dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/dongle_regular" />
 
-    <Button
-        android:id="@+id/termsOfUse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/ic_btn_invisible"
-        android:fontFamily="@font/dongle_regular"
-        android:padding="12dp"
-        android:text="이용약관 및 개인정보취급방침"
-        android:textColor="@color/gray"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnCompleteSignUp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+                <!-- 연령대 선택 -->
+                <Spinner
+                    android:id="@+id/spinnerAgeGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:spinnerMode="dropdown"
+                    android:visibility="visible"
+                    tools:listitem="@layout/item_spinner_age"/>
 
-    <Button
-        android:id="@+id/btnCompleteSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/orange"
-        android:padding="12dp"
-        android:text="동의하고 회원가입"
-        android:fontFamily="@font/dongle_regular"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+                <!-- 학교명 입력 (선택) -->
+                <EditText
+                    android:id="@+id/etSchoolName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="학교명 입력 (선택)"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:inputType="textPersonName"
+                    android:padding="12dp"
+                    android:textColorHint="@color/gray"
+                    android:fontFamily="@font/dongle_regular" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <!-- 이용약관 버튼 -->
+                <Button
+                    android:id="@+id/termsOfUse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_btn_invisible"
+                    android:fontFamily="@font/dongle_regular"
+                    android:padding="12dp"
+                    android:text="이용약관 및 개인정보취급방침"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp" />
+
+                <!-- 동의하고 회원가입 버튼 -->
+                <Button
+                    android:id="@+id/btnCompleteSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/orange"
+                    android:padding="12dp"
+                    android:text="동의하고 회원가입"
+                    android:fontFamily="@font/dongle_regular"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

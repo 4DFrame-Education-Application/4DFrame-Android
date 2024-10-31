@@ -10,6 +10,7 @@ import com.blockmaker.fdland.R
 import com.blockmaker.fdland.data.api.AuthService
 import com.blockmaker.fdland.data.api.SignInView
 import com.blockmaker.fdland.databinding.ActivitySignInBinding
+import com.blockmaker.fdland.presentation.home.HomeActivity
 import com.blockmaker.fdland.presentation.main.MainActivity
 import com.blockmaker.fdland.presentation.signup.view.EmailVerificationActivity
 
@@ -34,6 +35,11 @@ class SignInActivity : AppCompatActivity(), SignInView {
 
         binding.btnSignUp.setOnClickListener {
             val intent = Intent(this, EmailVerificationActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnClose.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
     }

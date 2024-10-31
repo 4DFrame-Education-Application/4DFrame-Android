@@ -17,6 +17,7 @@ class MyPageResulttoConstActivity : AppCompatActivity() {
         val button3 = findViewById<Button>(R.id.button3)
         val button4 = findViewById<Button>(R.id.button4)
         val button5 = findViewById<Button>(R.id.button5)
+        val toolbar_previous = findViewById<Button>(R.id.toolbar_previous)
 
 
         button1.setOnClickListener {
@@ -42,6 +43,12 @@ class MyPageResulttoConstActivity : AppCompatActivity() {
         button5.setOnClickListener {
             val intent = Intent(this, ConstListActivity::class.java)
             startActivity(intent)
+        }
+
+        toolbar_previous.setOnClickListener {
+            val intent = Intent(this, MyPageResultMainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

@@ -22,16 +22,19 @@ class MyPageResultMainActivity : AppCompatActivity() {
         prevButton.setOnClickListener {
             val intent = Intent(this, MyPageActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         buildButton.setOnClickListener {
             val intent = Intent(this, MyPageResulttoBuildActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         constButton.setOnClickListener {
             val intent = Intent(this, MyPageResulttoConstActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

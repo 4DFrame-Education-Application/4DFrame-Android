@@ -1,6 +1,5 @@
 package com.blockmaker.fdland.data.api
 
-import AuthRetrofitInterface
 import android.util.Log
 import com.blockmaker.fdland.data.model.AuthResponse
 import retrofit2.Call

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Blockmaker</string>
+    <string name="app_name">포디랜드 POC</string>
     <string name="loading">결과 측정 중 ...</string>
     <string name="toolbar_btn_cam">다시 선택</string>
     <string name="toolbar_btn_home">처음으로</string>
@@ -49,4 +49,12 @@
     <string name="login_app_close">닫기</string>
     <string name="login_fail_message">로그인을 실패했습니다</string>
     <string name="btn_main_mypage">마이페이지</string>
+    <string-array name="spinner_age">
+        <item>초등학교 입학 전 (~7세)</item>
+        <item>초등학생(8세 ~ 13세)</item>
+        <item>중학생(14세 ~ 16세)</item>
+        <item>고등학생(17세 ~ 19세)</item>
+        <item>대학생</item>
+        <item>일반</item>
+    </string-array>
 </resources>

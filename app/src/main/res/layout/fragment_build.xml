@@ -15,7 +15,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@color/white"
             app:contentInsetStart="0dp"
             app:layout_scrollFlags="scroll|enterAlways">
@@ -23,11 +23,11 @@
             <Button
                 android:id="@+id/toolbar_previous"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:gravity="center"
                 android:layout_gravity="start"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/dongle_bold"
                 android:background="@drawable/ic_btn_invisible"
@@ -39,11 +39,10 @@
                 android:layout_gravity="end"
                 android:fontFamily="@font/dongle_bold"
                 android:gravity="center"
-                android:padding="10dp"
                 android:layout_marginRight="15dp"
                 android:text="@string/main_build"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView

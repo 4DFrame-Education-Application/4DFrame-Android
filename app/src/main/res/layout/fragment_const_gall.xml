@@ -30,7 +30,7 @@
                 android:gravity="center"
                 android:text="@string/toolbar_btn_pre"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -48,10 +48,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="end"
-                android:padding="10dp"
                 android:layout_marginRight="15dp"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/dongle_bold"
                 android:text="@string/main_const" />

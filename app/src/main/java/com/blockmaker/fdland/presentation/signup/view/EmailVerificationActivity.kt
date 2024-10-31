@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.blockmaker.fdland.R
+import com.blockmaker.fdland.presentation.signin.SignInActivity
 import com.blockmaker.fdland.presentation.signup.viewmodel.EmailVerificationViewModel
 
 class EmailVerificationActivity : AppCompatActivity() {
@@ -19,9 +20,11 @@ class EmailVerificationActivity : AppCompatActivity() {
     private lateinit var btnVerifyEmail: Button
     private lateinit var btnCheckCode: Button
     private lateinit var btnJoinNext: Button
+    private lateinit var btnprevious: Button
     private lateinit var viewModel: EmailVerificationViewModel
 
     private var receivedConfirmationCode: String? = null
+    private var isVerified = false // 인증 상태를 저장하는 변수
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +35,12 @@ class EmailVerificationActivity : AppCompatActivity() {
         btnVerifyEmail = findViewById(R.id.btnVerifyEmail)
         btnCheckCode = findViewById(R.id.btnCheckCode)
         btnJoinNext = findViewById(R.id.btnJoinNext)
+        btnprevious = findViewById(R.id.toolbar_previous)
 
         viewModel = ViewModelProvider(this)[EmailVerificationViewModel::class.java]
 
-        // 초기 버튼 상태 설정
-        btnCheckCode.isEnabled = false  // 인증번호 확인 버튼 비활성화
-        btnJoinNext.isEnabled = false    // 다음 버튼 비활성화
+        btnCheckCode.isEnabled = false
+        btnJoinNext.isEnabled = false
 
         // 인증번호 전송 버튼 클릭 시
         btnVerifyEmail.setOnClickListener {
@@ -45,11 +48,9 @@ class EmailVerificationActivity : AppCompatActivity() {
             if (email.isNotEmpty()) {
                 sendVerificationEmail(email)
 
-                // 버튼 비활성화 (3분 동안)
                 btnVerifyEmail.isEnabled = false
                 startCountDownTimer(180000) // 3분 타이머 시작
 
-                // 인증 확인 버튼 활성화
                 btnCheckCode.isEnabled = true
             } else {
                 Log.e("EmailVerifyAct", "이메일을 입력하세요.")
@@ -61,11 +62,17 @@ class EmailVerificationActivity : AppCompatActivity() {
             verifyCode()
         }
 
-        // 다음 버튼 클릭 시 SignUpActivity로 이동
         btnJoinNext.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
+            intent.putExtra("verified", isVerified) // 인증 상태 전달
             startActivity(intent)
-            finish()  // 현재 Activity 종료
+            finish()
+        }
+
+        btnprevious.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -103,8 +110,7 @@ class EmailVerificationActivity : AppCompatActivity() {
         if (enteredCode == receivedConfirmationCode) {
             Log.d("EmailVerifyAct", "인증 성공!")
             Toast.makeText(this, "인증 성공!", Toast.LENGTH_SHORT).show()
-
-            // 인증 성공 시 다음 버튼 활성화
+            isVerified = true // 인증 성공 시 상태 업데이트
             btnJoinNext.isEnabled = true
         } else {
             Log.e("EmailVerifyAct", "인증 번호가 일치하지 않습니다.")

@@ -32,7 +32,7 @@
                 android:gravity="center"
                 android:text="@string/toolbar_btn_pre"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -44,7 +44,7 @@
                 android:layout_marginRight="15dp"
                 android:text="블록쌓기"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -86,9 +86,9 @@
                 android:gravity="center"
                 android:padding="8dp"
                 android:layout_margin="5dp"
-                android:text="10월 14일 오후 1시 38분"
+                android:text="10월 18일 오후 1시 38분"
                 android:textColor="#000000"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/button2"
@@ -100,9 +100,9 @@
                 android:padding="8dp"
                 android:fontFamily="@font/dongle_regular"
                 android:layout_margin="5dp"
-                android:text="10월 13일 오후 1시 34분"
+                android:text="10월 17일 오후 1시 34분"
                 android:textColor="#000000"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/button3"
@@ -114,9 +114,9 @@
                 android:padding="8dp"
                 android:fontFamily="@font/dongle_regular"
                 android:layout_margin="5dp"
-                android:text="10월 13일 오후 1시 30분"
+                android:text="10월 17일 오후 1시 30분"
                 android:textColor="#000000"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/button4"
@@ -128,9 +128,9 @@
                 android:padding="8dp"
                 android:fontFamily="@font/dongle_regular"
                 android:layout_margin="5dp"
-                android:text="10월 13일 오후 1시 25분"
+                android:text="10월 17일 오후 12시 25분"
                 android:textColor="#000000"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/button5"
@@ -142,9 +142,9 @@
                 android:padding="8dp"
                 android:fontFamily="@font/dongle_regular"
                 android:layout_margin="5dp"
-                android:text="10월 12일 오후 12시 25분"
+                android:text="10월 16일 오후 4시 25분"
                 android:textColor="#000000"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
     </ScrollView>

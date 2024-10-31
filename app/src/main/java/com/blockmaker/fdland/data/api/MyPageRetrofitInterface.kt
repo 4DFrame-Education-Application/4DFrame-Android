@@ -1,3 +1,5 @@
+package com.blockmaker.fdland.data.api
+
 import com.blockmaker.fdland.data.model.MyPageResponse
 import retrofit2.Call
 import retrofit2.http.GET

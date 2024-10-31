@@ -28,8 +28,9 @@ class MyPageConfirmActivity : AppCompatActivity() {
         }
 
         binding.btnEditInfo.setOnClickListener {
-            val intent = Intent(this, MyPageActivity::class.java) // Replace with your actual activity
+            val intent = Intent(this, MyPageModifyActivity::class.java) // Replace with your actual activity
             startActivity(intent)
+            finish()
         }
 
         val token = getToken()
