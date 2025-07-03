@@ -2,6 +2,7 @@ package com.blockmaker.fdland.presentation.build.viewmodel
 
 import android.content.ContentValues
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore
 import android.util.Log
@@ -20,6 +21,7 @@ import androidx.lifecycle.viewModelScope
 import com.blockmaker.fdland.data.repository.ConstRepository
 import com.blockmaker.fdland.data.repository.PathRepository
 import com.blockmaker.fdland.presentation.build.view.ConstCamActivity
+import com.blockmaker.fdland.presentation.build.view.ConstLoadingView
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -103,12 +105,14 @@ class ConstCamViewModel(private val constRepository: ConstRepository) : ViewMode
                     val msg = "사진 찍기 성공: ${output.savedUri}"
                     Log.d(TAG, msg)
 
-                    Toast.makeText(context, "사진을 서버로 전송 중... 서버로 보내고 있으니 잠시만 기다려주세요!", Toast.LENGTH_LONG).show()
-                    Log.d(TAG, "충분한 사진이 촬영되었습니다. 업로드를 시작합니다.")
+                    Toast.makeText(context, "사진 저장됨. 로딩 중...", Toast.LENGTH_SHORT).show()
 
-                    // 서버로 이미지 전송
                     output.savedUri?.let { uri ->
-                        prepareAndSendImage(uri, token, context)  // 토큰을 전달
+                        val intent = Intent(context, ConstLoadingView::class.java).apply {
+                            putExtra("local_uri", uri.toString())
+                            putExtra("token", token)
+                        }
+                        context.startActivity(intent)
                     }
                 }
             }
