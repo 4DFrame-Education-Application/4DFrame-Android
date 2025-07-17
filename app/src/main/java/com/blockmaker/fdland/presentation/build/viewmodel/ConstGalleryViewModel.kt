@@ -28,10 +28,10 @@ class ConstGalleryViewModel(private val repository: ConstRepository) : ViewModel
     private val _navigateToNextPage = MutableLiveData<Boolean>()
     val navigateToNextPage: LiveData<Boolean> get() = _navigateToNextPage
 
-    fun selectImage(uri: Uri, token: String, context: Context) {
+    fun selectImage(uri: Uri, context: Context) {
         _selectedImage.value = uri
         _navigateToNextPage.value = true
-        val token = getTokenFromPreferences(context)  // SharedPreferences에서 토큰 가져오기
+        val token = getTokenFromPreferences(context)
         prepareAndSendImage(uri, token, context)
     }
 

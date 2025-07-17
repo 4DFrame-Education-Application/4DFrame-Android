@@ -35,4 +35,9 @@ interface AuthRetrofitInterface {
         @Query("userGrade") userGrade: String,
         @Query("userName") userName: String
     ): Call<SignUpResponse>
+
+    @POST("/api/sign/kakao-login")
+    fun loginWithKakao(
+        @retrofit2.http.Header("Authorization") kakaoAccessToken: String
+    ): Call<AuthResponse>
 }

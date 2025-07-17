@@ -20,7 +20,7 @@
     <string name="item_count">개수</string>
     <string name="item_acc">정확도</string>
     <string name="item_heart">하트</string>
-    <string name="result_const">우와 잘했어요 짝짝</string>
+    <string name="result_const">우와 잘했어요!!</string>
     <string name="type_original">기본</string>
     <string name="type_step">계단</string>
     <string name="type_together">모아</string>
@@ -47,8 +47,10 @@
     <string name="login_btn_signup">회원가입</string>
     <string name="login_app_ill">앱 일러스트</string>
     <string name="login_app_close">닫기</string>
-    <string name="login_fail_message">로그인을 실패했습니다</string>
+    <string name="login_fail_message">아이디 또는 비밀번호가 올바르지 않습니다.</string>
     <string name="btn_main_mypage">마이페이지</string>
+    <string name="auto_login_warning">(공용 기기 사용 자제)</string>
+    <string name="auto_login_label">자동로그인</string>
     <string-array name="spinner_age">
         <item>초등학교 입학 전 (~7세)</item>
         <item>초등학생(8세 ~ 13세)</item>

@@ -3,6 +3,7 @@ package com.blockmaker.fdland.presentation.signin
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -13,6 +14,10 @@ import com.blockmaker.fdland.databinding.ActivitySignInBinding
 import com.blockmaker.fdland.presentation.home.HomeActivity
 import com.blockmaker.fdland.presentation.main.MainActivity
 import com.blockmaker.fdland.presentation.signup.view.EmailVerificationActivity
+import com.kakao.sdk.auth.model.OAuthToken
+import com.kakao.sdk.common.model.ClientError
+import com.kakao.sdk.common.model.ClientErrorCause
+import com.kakao.sdk.user.UserApiClient
 
 class SignInActivity : AppCompatActivity(), SignInView {
 
@@ -21,6 +26,17 @@ class SignInActivity : AppCompatActivity(), SignInView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val sharedPreferences = getSharedPreferences("auth_prefs", MODE_PRIVATE)
+        val isAutoLogin = sharedPreferences.getBoolean("AUTO_LOGIN", false)
+        val token = sharedPreferences.getString("X-AUTH-TOKEN", null)
+
+        if (isAutoLogin && token != null) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+            return
+        }
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_in)
         authService.setSignInView(this)
 
@@ -29,18 +45,24 @@ class SignInActivity : AppCompatActivity(), SignInView {
             val password = binding.etPassword.text.toString().trim()
 
             if (validateInput(email, password)) {
-                authService.signIn(email, password)  // Query 파라미터로 전달
+                authService.signIn(email, password)
             }
         }
 
+        binding.cbAutoLogin.setOnCheckedChangeListener { _, isChecked ->
+            binding.tvAutoLoginWarning.visibility = if (isChecked) View.VISIBLE else View.GONE
+        }
+
         binding.btnSignUp.setOnClickListener {
-            val intent = Intent(this, EmailVerificationActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, EmailVerificationActivity::class.java))
         }
 
         binding.btnClose.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
+        binding.btnKakaoLogin.setOnClickListener {
+            handleKakaoLogin()
         }
     }
 
@@ -58,23 +80,60 @@ class SignInActivity : AppCompatActivity(), SignInView {
         }
     }
 
+    private fun handleKakaoLogin() {
+        val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
+            if (error != null) {
+                Log.e("SignInActivity", "카카오계정 로그인 실패", error)
+                Toast.makeText(this, "카카오 로그인 실패", Toast.LENGTH_SHORT).show()
+            } else if (token != null) {
+                Log.i("SignInActivity", "카카오계정 로그인 성공: ${token.accessToken}")
+                authService.signInWithKakao(token.accessToken)
+            }
+        }
+
+        if (UserApiClient.instance.isKakaoTalkLoginAvailable(this)) {
+            UserApiClient.instance.loginWithKakaoTalk(this) { token, error ->
+                if (error != null) {
+                    Log.e("SignInActivity", "카카오톡 로그인 실패", error)
+
+                    if (error is ClientError && error.reason == ClientErrorCause.Cancelled) {
+                        return@loginWithKakaoTalk
+                    }
+
+                    // 카카오톡 실패 시 계정 로그인 시도
+                    UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
+                } else if (token != null) {
+                    Log.i("SignInActivity", "카카오톡 로그인 성공: ${token.accessToken}")
+                    authService.signInWithKakao(token.accessToken)
+                }
+            }
+        } else {
+            UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
+        }
+    }
+
     override fun onSignInSuccess(token: String) {
-        Log.d("SignInActivity", "로그인 성공: 사용자 token = $token")
+        val isAutoLogin = binding.cbAutoLogin.isChecked
         saveToken(token)
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        saveAutoLoginState(isAutoLogin)
+
+        binding.tvLoginFailMessage.visibility = View.GONE
+        startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 
-    private fun saveToken(token: String) {
-        val sharedPreferences = getSharedPreferences("auth_prefs", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString("X-AUTH-TOKEN", token) // 토큰을 X-AUTH-TOKEN으로 저장
-        editor.apply()
+    override fun onSignInFailure() {
+        binding.tvLoginFailMessage.text = "아이디 또는 비밀번호가 올바르지 않습니다."
+        binding.tvLoginFailMessage.visibility = View.VISIBLE
     }
 
-    override fun onSignInFailure() {
-        Log.d("SignInActivity", "로그인 실패")
-        Toast.makeText(this, "로그인에 실패했습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
+    private fun saveToken(token: String) {
+        val prefs = getSharedPreferences("auth_prefs", MODE_PRIVATE)
+        prefs.edit().putString("X-AUTH-TOKEN", token).apply()
+    }
+
+    private fun saveAutoLoginState(enabled: Boolean) {
+        val prefs = getSharedPreferences("auth_prefs", MODE_PRIVATE)
+        prefs.edit().putBoolean("AUTO_LOGIN", enabled).apply()
     }
 }

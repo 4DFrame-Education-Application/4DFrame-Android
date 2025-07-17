@@ -7,14 +7,14 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import com.blockmaker.fdland.databinding.FragmentConstGallBinding
 import com.blockmaker.fdland.data.repository.ConstRepository
 import com.blockmaker.fdland.data.source.remote.construct.ConstructDataSourceImpl
+import com.blockmaker.fdland.databinding.ActivityConstGallBinding
 import com.blockmaker.fdland.presentation.build.viewmodel.ConstGalleryViewModel
 
 class ConstGalleryActivity : AppCompatActivity() {
 
-    private lateinit var binding: FragmentConstGallBinding
+    private lateinit var binding: ActivityConstGallBinding
     private lateinit var viewModel: ConstGalleryViewModel
 
     private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
@@ -29,13 +29,17 @@ class ConstGalleryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentConstGallBinding.inflate(layoutInflater)
+        binding = ActivityConstGallBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         viewModel = ConstGalleryViewModel(ConstRepository(ConstructDataSourceImpl()))
 
         binding.imageView1.setOnClickListener {
             pickImageFromGallery()
+        }
+
+        binding.toolbarPrevious.setOnClickListener {
+            finish()
         }
     }
 

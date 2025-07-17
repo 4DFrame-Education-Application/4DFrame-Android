@@ -35,4 +35,23 @@ class AuthService {
             }
         })
     }
+
+    fun signInWithKakao(kakaoAccessToken: String) {
+        val authService = retrofit.create(AuthRetrofitInterface::class.java)
+        authService.loginWithKakao("Bearer $kakaoAccessToken")
+            .enqueue(object : Callback<AuthResponse> {
+                override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
+                    if (response.isSuccessful && response.body() != null) {
+                        val token = response.body()!!.token
+                        signInView.onSignInSuccess(token)
+                    } else {
+                        signInView.onSignInFailure()
+                    }
+                }
+
+                override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
+                    signInView.onSignInFailure()
+                }
+            })
+    }
 }
